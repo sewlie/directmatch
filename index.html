@@ -6,6 +6,8 @@
   <title>
     GUStakes Match History
   </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <style>
 #background-video {
     width: 100vw;
@@ -109,13 +111,8 @@ body p {
     <input type="text" id="textbox" placeholder="Enter playerid" list="playerids">
     <input type="hidden" name="ids" id="playerids-hidden">
     </input>
-    <input type="text" id="timestamp" placeholder='Enter timestamp to search from' list="timestamps"/>
-    <datalist id="timestamps">
-      <option value="1701320400" label="Dec 1"></option>
-      <option value="1701925200" label="Dec 8"></option>
-      <option value="1702530000" label="Dec 15"></option>
-      <option value="1703134800" label="Dec 22"></option>
-    </datalist>
+    <input type="text" id="timestamp" placeholder="Select a date" data-input>
+    <input type="hidden" name="time" id="timestamp-hidden">
     <input type="hidden" name="time" id="timestamp-hidden">
     <button id="submit">
       submit
@@ -127,6 +124,48 @@ body p {
   <video id="background-video" autoplay loop muted poster="">
     <source src="GUSVideoBG.mp4" type="video/mp4">
 </video>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#timestamp", {
+      enableTime: false,
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "U",
+      onChange: function (selectedDates, dateStr, instance) {
+        const unixTimestamp = dateStr;
+        document.getElementById("timestamp-hidden").value = unixTimestamp;
+      }
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    const container = $('#container');
+    const input = $('#textbox');
+    const button = $('#submit');
+    const output = $('#output');
+    const timeStamp = $('#timestamp');
+
+    button.click(function myFunc() {
+      // Existing code ...
+
+      // Reset output when date changes
+      $('#timestamp').on('change', function () {
+        output.html('');
+      });
+
+      // Existing code ...
+    });
+  });
+</script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
