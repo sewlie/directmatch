@@ -7,6 +7,17 @@
     GUStakes Match History
   </title>
 <style>
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -10;
+}
 #output {
   display: flex;
   flex-direction:column;
@@ -65,11 +76,21 @@
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  background: url(https://images.godsunchained.com/art2/1920/322.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  color: rgb(255, 255, 255)
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.695); /* Adjust the alpha value to control the overlay darkness */
+  z-index: -9; /* Place the overlay behind the content */
 }
 body p {
   margin: 0;
@@ -86,10 +107,6 @@ body p {
   <div id="container">
         <center>
     <input type="text" id="textbox" placeholder="Enter playerid" list="playerids">
-    <datalist id="playerids">
-      <option value="288757" label="Clutch"></option>
-      <option value="1424771" label="Villibesti"></option>
-    </datalist>
     <input type="hidden" name="ids" id="playerids-hidden">
     </input>
     <input type="text" id="timestamp" placeholder='Enter timestamp to search from' list="timestamps"/>
@@ -106,12 +123,22 @@ body p {
   </div>
   <div id="output" placeholder="enter player id">
   </div>
+
+  <video id="background-video" autoplay loop muted poster="">
+    <source src="../assets/GUSVideoBG.mp4" type="video/mp4">
+</video>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
   <script type="text/javascript" src="../functions/index.js">
   </script>
+  <script>
+    let vid = document.getElementById("background-video");
+    vid.playbackRate = 0.4;
+</script>
+
 </body>
 
 </html>
