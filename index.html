@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="index.css">
+  <meta charset="utf-8">
+  <title>
+    GUStakes Match History
+  </title>
+</head>
+
+<body>
+  <br><br><br><br><br><br>
+  <center>
+  <img src="https://images.squarespace-cdn.com/content/6395478721d02d2b94b64324/0d58d7db-04dd-447d-b5da-a72ca6e63f96/gustakes+logo+high+res.png?content-type=image%2Fpng" alt="GUStakes Logo" width="20%" height="20%">
+  <br><h1>GUStakes Match History</h1>
+</center>
+  <div id="container">
+        <center>
+    <input type="text" id="textbox" placeholder="Enter playerid" list="playerids">
+    <datalist id="playerids">
+      <option value="288757" label="Clutch"></option>
+      <option value="1424771" label="Villibesti"></option>
+    </datalist>
+    <input type="hidden" name="ids" id="playerids-hidden">
+    </input>
+    <input type="text" id="timestamp" placeholder='Enter timestamp to search from' list="timestamps"/>
+    <datalist id="timestamps">
+      <option value="1677649080" label="Mar 1"></option>
+      <option value="1677044280" label="Feb 22"></option>
+      <option value="1676439480" label="Feb 15"></option>
+      <option value="1675834680" label="Feb 8"></option>
+    </datalist>
+    <input type="hidden" name="time" id="timestamp-hidden">
+    <button id="submit">
+      submit
+    </button>
+  </div>
+  <div id="output" placeholder="enter player id">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+  <script type="text/javascript" src="index.js">
+  </script>
+</body>
+
+</html>
