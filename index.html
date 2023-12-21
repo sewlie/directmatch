@@ -86,13 +86,13 @@ body {
 }
 body::before {
   content: "";
-  position: absolute;
+  position: fixed; /* Use fixed position */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.695); /* Adjust the alpha value to control the overlay darkness */
-  z-index: -9; /* Place the overlay behind the content */
+  background-color: rgba(0, 0, 0, 0.695);
+  z-index: -9;
 }
 body p {
   margin: 0;
