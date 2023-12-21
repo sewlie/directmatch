@@ -12,13 +12,31 @@
 #output {
   display: flex;
   flex-direction:column;
-  padding: 25px;
-  align-items: center;
+  margin: 40px 0 0 25px;
+  align-items: left;
   top: 50%;
   position: relative;
   bottom: 50%
 }
-
+#output h2 {
+    width: 100%;
+}
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 40px 0px 30px;
+}
+.topbar h1 {
+    margin: 0 0 0 20px;
+}
+.logo {
+    width: 60px;
+    margin-top: 10px;
+    float: left;
+}
+.topbar-input {
+    margin: 0px 0px 0px 110px;
+}
 #output button {
   margin: 3px;
   padding: 15px;
@@ -85,8 +103,4 @@ body::before {
 }
 body p {
   margin: 0;
-}
-.logo {
-  width: 60px;
-  margin-top: 20px;
 }

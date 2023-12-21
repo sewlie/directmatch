@@ -12,19 +12,23 @@
 </head>
 
 <body>
-  <img class="logo" src="https://images.squarespace-cdn.com/content/6395478721d02d2b94b64324/0d58d7db-04dd-447d-b5da-a72ca6e63f96/gustakes+logo+high+res.png?content-type=image%2Fpng" alt="GUStakes Logo">
-  <br><h1>GUStakes Match History</h1>
-  <div id="container">
-    <input type="text" id="textbox" placeholder="Enter playerid" list="playerids">
-    <input type="hidden" name="ids" id="playerids-hidden">
-    </input>
-    <input type="text" id="timestamp" placeholder="Select a date" data-input>
-    <input type="hidden" name="time" id="timestamp-hidden">
-    <input type="hidden" name="time" id="timestamp-hidden">
-    <button id="submit">
-      submit
-    </button>
-  </div>
+  <div class="topbar">
+    <img class="logo" src="https://images.squarespace-cdn.com/content/6395478721d02d2b94b64324/0d58d7db-04dd-447d-b5da-a72ca6e63f96/gustakes+logo+high+res.png?content-type=image%2Fpng" alt="GUStakes Logo">
+
+        <h1 style="margin-top: 25px;">GUStakes Match History</h1>
+   </div>  
+        <div class="topbar-input" id="container">
+        <input type="text" id="textbox" placeholder="Enter playerid" list="playerids">
+        <input type="hidden" name="ids" id="playerids-hidden">
+        </input>
+        <input type="text" id="timestamp" placeholder="Select a date" data-input>
+        <input type="hidden" name="time" id="timestamp-hidden">
+        <input type="hidden" name="time" id="timestamp-hidden">
+        <button id="submit">
+          submit
+        </button>
+    </div>
+
   <div id="output" placeholder="enter player id">
   </div>
 
@@ -118,8 +122,8 @@
             const filtered = flattened.filter((x) => x !== null);
   
             if (output.children().length === 0) { 
-              output.append(`<p>${username}</p><br>`)
-              output.append(`<p>Total Matches: ${filtered.length}</p>`)
+              output.append(`<p>Name:</p><h2>${username}</h2>`)
+              output.append(`<p>Record:</p><br><p>Total Matches: ${filtered.length}</p>`)
               output.append(`<p>Won Matches: ${wonRecords && wonRecords.length || 0}</p>`);
               output.append(`<p>Lost Matches: ${lostRecords && lostRecords.length || 0}</p><br>`);  
               filtered.map((x) => {
