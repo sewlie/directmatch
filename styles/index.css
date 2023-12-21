@@ -56,11 +56,7 @@
 body {
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
-    background: linear-gradient(
-        rgba(75, 75, 75, 0.95), 
-        rgba(0, 0, 0, 0.95)
-    ),
-    url(https://images.godsunchained.com/art2/1920/322.jpg);
+    background: url(https://images.godsunchained.com/art2/1920/322.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
