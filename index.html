@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    GUStakes Match History
+    Direct Match History
   </title>
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -12,22 +12,35 @@
 </head>
 
 <body>
-  <div class="topbar">
-    <img class="logo" src="https://images.squarespace-cdn.com/content/6395478721d02d2b94b64324/0d58d7db-04dd-447d-b5da-a72ca6e63f96/gustakes+logo+high+res.png?content-type=image%2Fpng" alt="GUStakes Logo">
+  <div class="logo-and-text" style="display: flex; justify-content: cemter; align-items: center;">
+    <img class="logo" src="https://images.squarespace-cdn.com/content/6395478721d02d2b94b64324/0d58d7db-04dd-447d-b5da-a72ca6e63f96/gustakes+logo+high+res.png?content-type=image%2Fpng" alt="GUStakes Logo">  
+    <p>GUSLabs
+    </p>
+</div>
 
-        <h1 style="margin-top: 25px;">GUStakes Match History</h1>
-   </div>  
-        <div class="topbar-input" id="container">
-        <input type="text" id="textbox" placeholder="Enter playerid" list="playerids">
+  <div class="logo-and-text2" style="text-align: center;">
+    <img class="gu-logo" src="GU logo2.png" alt="GU Logo">
+    <!---<h1 style="margin-top: 10px; text-align: center;">GODS UNCHAINED</h1>---> 
+  </div> 
+  <div class="topbar">
+    <h1 style="margin-top: 0px; text-align: center;">Direct Match History</h1>
+  </div>
+  <div class="topbar2">
+    <p class="topbar2-text">Paste your Gods Unchained Player ID below and choose a date that is within 3 days of your direct match</p>
+  </div>
+  <div class="topbar-input" id="container">
+
+        <input type="text" id="textbox" placeholder="GU Player ID" list="playerids">
         <input type="hidden" name="ids" id="playerids-hidden">
-        </input>
-        <input type="text" id="timestamp" placeholder="Select a date" data-input>
-        <input type="hidden" name="time" id="timestamp-hidden">
-        <input type="hidden" name="time" id="timestamp-hidden">
+        
+        <input type="hidden" id="timestamp" placeholder="Select a date" data-input="" class="flatpickr-input" value="1701406800">
+        <div class="input-fields">
         <button id="submit">
-          submit
+            submit
         </button>
     </div>
+</div>
+
 
   <div id="output" placeholder="enter player id">
   </div>
@@ -43,39 +56,141 @@
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    flatpickr("#timestamp", {
-      enableTime: false,
-      altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "U",
-      onChange: function (selectedDates, dateStr, instance) {
-        const unixTimestamp = dateStr;
-        document.getElementById("timestamp-hidden").value = unixTimestamp;
-      }
-    });
-  });
+document.addEventListener("DOMContentLoaded", function () {
+    try {
+        flatpickr("#timestamp", {
+            enableTime: false,
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "U",
+            onChange: function (selectedDates, dateStr, instance) {
+                // Check if the element exists before trying to access it
+                const timestampHiddenElement = document.getElementById("timestamp-hidden");
+
+                if (timestampHiddenElement) {
+                    // Set the value only if the element exists
+                    const unixTimestamp = dateStr;
+                    timestampHiddenElement.value = unixTimestamp;
+                }
+            }
+        });
+    } catch (error) {
+        // Display an error message on the screen
+        console.error("An error occurred:", error);
+        // You can modify the following line to display the error message on the screen
+        alert("An error occurred. Please check the console for details.");
+    }
+});
 </script>
 
 <script>
-  $(document).ready(function () {
-    const container = $('#container');
+$(document).ready(function () {
     const input = $('#textbox');
     const button = $('#submit');
-    const output = $('#output');
     const timeStamp = $('#timestamp');
+    const output = $('#output');
+
+    // Function to enable or disable the submit button based on input values
+    function toggleSubmitButton() {
+        const playerId = input.val();
+        const dateSelected = timeStamp.val();
+
+        // Enable the button if both player ID and date are provided
+        button.prop('disabled', !(playerId && dateSelected));
+    }
+
+    // Function to highlight the GU Player ID input box in red and fade back to white
+    function highlightInputBox() {
+        // Save the original background color
+        const originalColor = input.css('background-color');
+
+        // Change the background color to red
+        input.css('background-color', 'white');
+
+        // Animate the transition back to the original color over 1 second
+        input.animate({ 'background-color': originalColor }, 2000);
+    }
+
+// Function to display an error message
+function displayErrorMessage(message) {
+    // Clear any existing output
+    output.empty();
+
+    // Display the error message
+    const errorMessage = $(`<p class="error-message" style="color: red;">${message}</p>`);
+    output.append(errorMessage);
+
+    // Save the original background color
+    const originalColor = input.css('background-color');
+
+    // Change the background color to red
+    input.css('background-color', 'red');
+
+    // Animate the transition back to the original color over 1 second
+    input.animate({ 'background-color': originalColor }, 2000);
+
+    // Remove the error message after fading out
+    setTimeout(() => {
+        errorMessage.fadeOut(2000, function () {
+            errorMessage.remove();
+            input.css('background-color', originalColor); // Reset the input box color
+        });
+    }, 4000);
+}
+
+    // Add input event listener to the player ID input
+    input.on('input', function () {
+        toggleSubmitButton();
+
+        // Reset the input box color when the user starts typing again
+        input.css('background-color', 'white');
+    });
+
+    // Add change event listener to the date picker
+    timeStamp.on('change', toggleSubmitButton);
 
     button.click(function myFunc() {
-      // Existing code ...
+        try {
+            const playerid = input.val();
+            const time = timeStamp.val();
 
-      // Reset output when date changes
-      $('#timestamp').on('change', function () {
-        output.html('');
-      });
+            // Check if GU player ID is empty
+            if (!playerid.trim()) {
+                // Display an error message on the screen
+                displayErrorMessage("Please input your Gods Unchained Player ID");
+                // Highlight the input box in red
+                highlightInputBox();
+                return; // Exit the function to prevent further execution
+            }
 
-      // Existing code ...
+            // Check if input contains anything other than numbers
+            const invalidInput = /\D/.test(playerid);
+            if (invalidInput) {
+                // Display an error message
+                displayErrorMessage("Your Player ID must only contain numbers");
+                // Highlight the input box in red
+                highlightInputBox();
+                return; // Exit the function to prevent further execution
+            }
+
+            const myCards = [];
+            const matches = [];
+            let wonRecords;
+            let lostRecords;
+            let username;
+
+            // API call to retrieve user properties
+            $.get(`https://api.godsunchained.com/v0/properties?user_id=${playerid}`, (d) => {
+                // Existing code...
+            });
+        } catch (error) {
+            // Display an error message on the screen
+            console.error("An error occurred:", error);
+            // You can modify the following line to display the error message on the screen
+            alert("An error occurred. Please check the console for details.");
+        }
     });
-  });
+});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -100,6 +215,15 @@
       let wonRecords;
       let lostRecords;
       let username;
+
+      // Reset output when date changes
+      $('#timestamp').on('change', function () {
+        output.html('');
+      });
+
+      $('#textbox').on('change', function () {
+        output.html('');
+      });
   
       $.get(`https://api.godsunchained.com/v0/properties?user_id=${playerid}`, (d) => {
         const dat = JSON.parse(d);
