@@ -1,3 +1,23 @@
+@font-face {
+  font-family: Unchained;
+  src: url(unchained.ttf);
+}
+@font-face {
+  font-family: Unchained2;
+  src: url(ElMessiri-Bold.ttf);
+}
+@font-face {
+  font-family: Unchained3;
+  src: url(ElMessiri-Regular.ttf);
+}
+@font-face {
+  font-family: Goldman;
+  src: url(Goldman-Regular.ttf);
+}
+@font-face {
+  font-family: GoldmanBold;
+  src: url(Goldman-Bold.ttf);
+}
 #background-video {
     width: 100vw;
     height: 100vh;
@@ -55,20 +75,9 @@
   font-size: 20px;
   font-family: Unchained2;
 }
-@font-face {
-  font-family: Unchained;
-  src: url(unchained.ttf);
-}
-@font-face {
-  font-family: Unchained2;
-  src: url(ElMessiri-Bold.ttf);
-}
-@font-face {
-  font-family: Unchained3;
-  src: url(ElMessiri-Regular.ttf);
-}
+
 .logo-and-text p {
-  font-family: "Goldman", sans-serif;
+  font-family: Goldman;
   font-weight: normal;
   color: rgb(255, 255, 255);
   margin: 0;
