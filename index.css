@@ -143,10 +143,11 @@
   background-color: #00000070;
 }
 
-
-#output button {
-  position: center;
-  background-color: #000000b1;
+.action-button {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #912020b1;
   color: white;
   padding: 11px 40px;
   border: none;
@@ -157,25 +158,43 @@
 
 /* Add these styles to your CSS */
 .versus-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 25px;
   margin: 20px 20px 40px 0;
   width: 70vw;
+  align-items: center;
 }
 
-.versus-container > div {
+.player-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   text-align: center;
 }
 
+.versus-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.versus-buttons button {
+  margin: 0 10px;
+}
+
 .versus-container .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.opponent-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,7 +210,7 @@
 
 /* Style the buttons inside .versus-container */
 .versus-container button {
-  background-color: #000000b1;
+  background-color: #3621c5b1;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -229,14 +248,16 @@
 }
 
 .details-visible .action-button {
-  background-color: #000000b1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #b1be20b1;
   color: white;
-  padding: 10px 20px;
+  padding: 11px 40px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px;
-  transition: background-color 0.3s;
+  margin: 0 0 0 10px;
 }
 
 .details-visible .action-button:hover {

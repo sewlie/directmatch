@@ -45,6 +45,7 @@
   <div id="output" placeholder="enter player id">
   </div>
 
+  
   <video id="background-video" autoplay loop muted poster="">
     <source src="GUSVideoBG.mp4" type="video/mp4">
 </video>
@@ -266,22 +267,26 @@ function displayErrorMessage(message) {
               });
             }
             $('.action-button').click(async (e) => {
-  
-              const id = e.target.id;
-              const targetMatchArr = filtered.filter(x => x.game_id === id);
-              const targetMatch = targetMatchArr[0];
-              const { player_won, player_info } = targetMatch;
-              const outcome = parseInt(player_won) === parseInt(playerid) ? 'Won' : 'Lost';
-              const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? 'Won' : 'Lost';
-  
-              const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
-              const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
-  
-              const { cards: userCards, god: userGod,  } = userInfo;
-              const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
-  
-              const container = `
+                const id = e.target.id;
+                const targetMatchArr = filtered.filter(x => x.game_id === id);
+                const targetMatch = targetMatchArr[0];
+                const { player_won, player_info } = targetMatch;
+                const outcome = parseInt(player_won) === parseInt(playerid) ? 'Won' : 'Lost';
+                const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? 'Won' : 'Lost';
+
+                const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
+                const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
+
+                const { cards: userCards, god: userGod } = userInfo;
+                const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
+
+                const container = `
                 <div class="versus-container">
+                  <div class="versus-buttons">
+                  <button id="${id}-${playerid}-deck">See Decks</button>
+                  <button class="reset-button" id="${id}-${playerid}-reset">Reset</button>
+                  </div>
+                  <div class="player-container">
                   <div class="user-container">
                     <div><br>${username}</div>
                     <div class="container">
@@ -289,9 +294,8 @@ function displayErrorMessage(message) {
                       Result: ${outcome}
                       </span>
                       <span>
-                        God used: ${userGod}
+                      God: ${userGod}
                       </span>
-                      <button id="${id}-${playerid}-deck">v   See Deck   v</button>
                     </div>
                     <div class="image-container">
                     </div>
@@ -305,18 +309,27 @@ function displayErrorMessage(message) {
                       Opponent GUDecks Link
                       </a>
                       <span>
-                      opponent ${opponentOutcome}
+                      Result: ${opponentOutcome}
                       </span>
                       <span>
-                        God used: ${opponentGod}
+                      God: ${opponentGod}
                       </span>
-                      <button id="${id}-opponent-deck">v   See Deck   v</button>
+                      
                     </div>
                     <div class="image-container">
                     </div>
-                  </div>  
+                  </div> 
+                  </div> 
                 </div>
               `;
+
+        if ($(`#${id}-container`).children().length === 1) {
+        $(`#${id}-container`).append(container);
+        $(`#${id}`).hide();
+
+        // Show the "Reset" button after clicking "See Match Details"
+        $(`#${id}-${playerid}-reset`).show();
+    }
   
               console.log($(`#${id}-container`).children())
   
@@ -356,6 +369,13 @@ function displayErrorMessage(message) {
                 showCards(userCards, '.user-container'),
                 showCards(opponentCards, '.opponent-container');
               });
+
+              // Add a click event handler for the "Reset" button
+$(`#${id}-${playerid}-reset`).click(() => {
+    // Clear the output and hide the "Reset" button
+    output.empty();
+    $(`#${id}-${playerid}-reset`).hide();
+});
   
             });
   
@@ -372,6 +392,8 @@ function displayErrorMessage(message) {
   
     });
   });
+
+  
   </script>
   <script>
     let vid = document.getElementById("background-video");
