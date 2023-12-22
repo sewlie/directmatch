@@ -154,8 +154,9 @@
   justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 20px;
-  margin: 20px 0;
+  padding: 25px;
+  margin: 20px 20px 40px 0;
+  width: 70vw;
 }
 
 .versus-container > div {
@@ -232,7 +233,15 @@
 .details-visible .action-button:hover {
   background-color: #00000070;
 }
-
+.card-image { 
+  max-height: 200px;
+  padding: 10px 20px 20px 20px;
+  width: auto;
+  transition: all 0.1s ease-in-out;
+}
+.card-image:hover {
+  transform: scale(1.1);
+}
 
 /*
 .versus-container { 
@@ -267,15 +276,7 @@
 }
 
 */
-.card-image { 
-  max-height: 300px;
-  padding-top: 15px;
-  width: auto;
-  transition:all 0.1s ease-in-out;
-}
-.card-image:hover {
-  transform: scale(1.1);
-}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
