@@ -13,7 +13,7 @@
 
 <body>
   <div class="logo-and-text" style="display: flex; justify-content: cemter; align-items: center;">
-    <img class="logo" src="https://images.squarespace-cdn.com/content/6395478721d02d2b94b64324/0d58d7db-04dd-447d-b5da-a72ca6e63f96/gustakes+logo+high+res.png?content-type=image%2Fpng" alt="GUStakes Logo">  
+    <img class="logo" src="GUSlogo.png" alt="GUStakes Logo">  
     <p>GUSLabs
     </p>
 </div>
@@ -26,7 +26,7 @@
     <h1 style="margin-top: 0px; text-align: center;">Direct Match History</h1>
   </div>
   <div class="topbar2">
-    <p class="topbar2-text">Paste your Gods Unchained Player ID below and choose a date that is within 3 days of your direct match</p>
+    <p class="topbar2-text">Paste your Gods Unchained Player ID below and choose a date that is within three days of your direct match</p>
   </div>
   <div class="topbar-input" id="container">
 
@@ -220,7 +220,7 @@ function displayErrorMessage(message) {
       // Reset output when date changes
       $('#timestamp').on('change', function () {
         output.html('');
-      });
+      }); 
 
       $('#textbox').on('change', function () {
         output.html('');
@@ -247,7 +247,7 @@ function displayErrorMessage(message) {
             const filtered = flattened.filter((x) => x !== null);
   
             if (output.children().length === 0) { 
-              output.append(`<p>Name:</p><h2>${username}</h2>`)
+              output.append(`<h2>${username}</h2>`)
               output.append(`<p>Record:</p><br><p>Total Matches: ${filtered.length}</p>`)
               output.append(`<p>Won Matches: ${wonRecords && wonRecords.length || 0}</p>`);
               output.append(`<p>Lost Matches: ${lostRecords && lostRecords.length || 0}</p><br>`);  
@@ -288,7 +288,7 @@ function displayErrorMessage(message) {
                   </div>
                   <div class="player-container">
                   <div class="user-container">
-                    <div><br>${username}</div>
+                    <div><h2><a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}><h2>${username}</h2></a></div>
                     <div class="container">
                       <span>
                       Result: ${outcome}
@@ -302,12 +302,8 @@ function displayErrorMessage(message) {
                   </div>
                   <div class="opponent-container">
                     <div class="container">
-                      <span>
-                      ${opponentPlayerid}<br/>
-                      </span>
-                      <a target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>
-                      Opponent GUDecks Link
-                      </a>
+                      <a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}><h2>
+                      ${opponentPlayerid}</h2></a>
                       <span>
                       Result: ${opponentOutcome}
                       </span>

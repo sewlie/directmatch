@@ -43,6 +43,7 @@
 }
 #output h2 {
     align-items: center;
+    font-size: 20px;
 }
 .topbar {
     display: flex;
@@ -72,7 +73,7 @@
   margin: 0 0 10px 0;
 }
 .topbar h1 {
-  font-size: 20px;
+  font-size: 2.5vw;
   font-family: Unchained2;
 }
 
@@ -81,7 +82,7 @@
   font-weight: normal;
   color: rgb(255, 255, 255);
   margin: 0;
-  margin: 10px 20px 0 15px;
+  margin: 10px 20px 0 5px;
   text-align: left;
   font-size: 27px;
 }
@@ -96,7 +97,7 @@
 }
 .gu-logo {
   width: auto;
-  height: 100px;
+  height: 8vw;
   margin: 0px 0 2px 0px;
 }
 
@@ -143,11 +144,15 @@
   background-color: #00000070;
 }
 
+.action-button:hover {
+  background-color: #00000070;
+}
+
 .action-button {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #912020b1;
+  background-color: #000000b1;
   color: white;
   padding: 11px 40px;
   border: none;
@@ -191,14 +196,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15px;
+}
+
+.versus-container span {
+  text-transform: capitalize;
 }
 
 .opponent-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .versus-container .image-container {
@@ -210,7 +218,7 @@
 
 /* Style the buttons inside .versus-container */
 .versus-container button {
-  background-color: #3621c5b1;
+  background-color: #000000b1;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -231,12 +239,14 @@
 
 /* Style the opponent GUDecks link */
 .versus-container a {
-  color: #00aaff;
+  color: #fff700da;
   text-decoration: none;
+  padding: 0;
 }
 
 .versus-container a:hover {
   text-decoration: underline;
+  color: #fff700a3;
 }
 
 .details-visible .versus-container {
@@ -272,40 +282,6 @@
 .card-image:hover {
   transform: scale(1.1);
 }
-
-/*
-.versus-container { 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.versus-container > div > span { 
-  text-transform: uppercase;
-  max-width: 40%;
-  margin: 15px 15px;
-}
-.versus-container .user-container { 
-  text-transform: uppercase;
-  padding: 20px;
-  max-width: 45%;
-}
-.versus-container .opponent-container { 
-  text-transform: uppercase;
-  padding: 20px;
-  max-width: 45%;
-}
-.versus-container .user-container .container{ 
-  text-transform: uppercase;
-  display: inline-block;
-  flex-direction: column;
-}
-.versus-container .opponent-container .container { 
-  text-transform: uppercase;
-  display: inline-block;
-  flex-direction: column;
-}
-
-*/
 
 body {
   font-family: "Open Sans", sans-serif;
