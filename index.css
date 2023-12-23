@@ -286,8 +286,8 @@
 .details-visible .action-button:hover {
   background-color: #00000070;
 }
-.card-image { 
-  max-height: 200px;
+.card-image {
+  max-height: 250px;
   padding: 10px 20px 20px 20px;
   width: auto;
   transition: all 0.1s ease-in-out;
