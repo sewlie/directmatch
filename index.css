@@ -48,14 +48,11 @@
   padding: 10px;
   width: 300px;
   line-height: 20px;
-  /* text-align: center; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 #output h2 {
     align-items: center;
     font-size: 28px;
+    margin: 0;
 }
 .profile {
   background-color: rgba(255, 255, 255, 0.2);
@@ -65,7 +62,7 @@
 .topbar {
     display: flex;
     flex-wrap: wrap;
-    margin: 0px 30px 0px 30px;
+    margin: auto;
     justify-content: center;
 }
 .topbar2 {
@@ -105,7 +102,7 @@
   font-size: 27px;
 }
 .logo-and-text2 h1 {
-  font-size: 16px;
+  font-size: 20px;
   font-family: Unchained;
 }
 .logo {
@@ -115,7 +112,7 @@
 }
 .gu-logo {
   width: auto;
-  height: 12vw;
+  height: 100px;
   margin: 20px 0 2px 0px;
 }
 
@@ -202,13 +199,30 @@
   flex-wrap: wrap;
 }
 
+.playercard {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.286);
+  border-radius: 10px;
+  padding: 20px 80px 20px 80px;
+  margin: 20px 0;
+}
+
+.playercard h2 {
+  font-family: Unchained;
+}
+
+
 /* Add these styles to your CSS */
 .versus-container {
   justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 25px;
-  margin: 20px 20px 40px 0;
+  margin: 30px 0;
   width: 70vw;
   align-items: center;
 }
@@ -411,6 +425,7 @@ body::before {
 #output h2 {
     align-items: center;
     font-size: 28px;
+    margin: 0;
 }
 .profile {
   background-color: rgba(255, 255, 255, 0.2);
@@ -460,7 +475,7 @@ body::before {
   font-size: 20px;
 }
 .logo-and-text2 h1 {
-  font-size: 16px;
+  font-size: 20px;
   font-family: Unchained;
 }
 .logo {
@@ -570,6 +585,20 @@ body::before {
   cursor: pointer;
   margin: 0 0 0 10px;
 }
+
+
+.playercard {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.286);
+  border-radius: 10px;
+  padding: 0px 80px 20px 80px;
+  margin: 20px 0;
+}
+
 
 /* Add these styles to your CSS */
 .versus-container {
