@@ -46,14 +46,14 @@
   font-size: 16px;
   margin: 10px 10px;
   padding: 10px;
-  width: 300px;
+  width: 350px;
   line-height: 20px;
 }
 #output h2 {
     align-items: center;
-    font-size: 28px;
     margin: 0;
 }
+
 .profile {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
@@ -74,10 +74,10 @@
 
 /* Add new styles for the topbar2-text class */
 .topbar2-text {
-  font-size: 16px;
+  font-size: 12px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   line-height: 20px;
   max-width: 500px;
   text-align: center;
@@ -132,6 +132,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 20px;
+  transition: calc(1s);
 }
 
 .input-fields {
@@ -189,14 +190,14 @@
   text-align: center;
   background-color: #b8999961;
   color: white;
-  /* padding: 11px 40px; */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* margin: 0 0 0 10px; */
   flex-direction: column;
   align-content: center;
   flex-wrap: wrap;
+  width: 350px;
+  margin: 10px auto;
 }
 
 .playercard {
@@ -215,6 +216,9 @@
   font-family: Unchained;
 }
 
+.playercard p {
+  margin: 10px 0 0 0;
+}
 
 /* Add these styles to your CSS */
 .versus-container {
@@ -241,6 +245,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  width: 120px;
 }
 
 .versus-buttons button {
@@ -278,18 +283,19 @@
 
 /* Style the buttons inside .versus-container */
 .versus-container button {
-  background-color: #000000b1;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+  background-color: #00000000;
+  border-color: #0000008d;
+  color: rgba(0, 0, 0, 0.738);
+  padding: 11px 40px;
+  border-style: solid;
   border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
   margin-top: 15px;
-  transition: background-color 0.3s;
 }
 
 .versus-container button:hover {
-  background-color: #00000070;
+  background-color: #ffffff3e;
 }
 
 /* Add hover effect to card images */
@@ -335,7 +341,7 @@
 }
 .card-image {
   padding: 5px;
-  width: 8vw;
+  width: 12vw;
   height: auto;
   transition: all 0.1s ease-in-out;
 }
@@ -424,7 +430,6 @@ body::before {
 }
 #output h2 {
     align-items: center;
-    font-size: 28px;
     margin: 0;
 }
 .profile {
@@ -447,10 +452,10 @@ body::before {
 
 /* Add new styles for the topbar2-text class */
 .topbar2-text {
-  font-size: 16px;
+  font-size: 12px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   line-height: 20px;
   max-width: 500px;
   text-align: center;
@@ -507,6 +512,7 @@ body::before {
   display: flex;
   margin: 0 20px;
   flex-direction: column;
+  transition: calc(1s);
 }
 
 .input-fields {
@@ -544,8 +550,7 @@ body::before {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 10px 0 5px 0;
-  width: 220px;
+  margin: 20px 0 5px 0;
 }
 
 #reset {
@@ -558,7 +563,6 @@ body::before {
   border-radius: 5px;
   cursor: pointer;
   /* margin: 0 0 0 10px; */
-  width: 220px;
 }
 
 #submit:hover {
@@ -583,7 +587,8 @@ body::before {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 0 0 10px;
+  width: 200px; 
+  margin: 10px auto;
 }
 
 
@@ -595,10 +600,17 @@ body::before {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.286);
   border-radius: 10px;
-  padding: 0px 80px 20px 80px;
+  padding: 20px 80px 20px 80px;
   margin: 20px 0;
 }
 
+.playercard h2 {
+  font-family: Unchained;
+}
+
+.playercard p {
+  margin: 10px 0 0 0;
+}
 
 /* Add these styles to your CSS */
 .versus-container {
@@ -657,18 +669,19 @@ body::before {
 
 /* Style the buttons inside .versus-container */
 .versus-container button {
-  background-color: #000000b1;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+  background-color: #00000000;
+  border-color: #0000008d;
+  color: rgba(0, 0, 0, 0.738);
+  padding: 11px 40px;
+  border-style: solid;
   border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
   margin-top: 15px;
-  transition: background-color 0.3s;
 }
 
 .versus-container button:hover {
-  background-color: #00000070;
+  background-color: #ffffff3e;
 }
 
 /* Add hover effect to card images */

@@ -169,6 +169,12 @@
                   $('.logo-and-text2').css('transform', 'scale(0.5)');
                   $('.logo-and-text2').css('margin','-60px 0 -40px 0');
 
+                  $('.topbar2').hide();
+                  $('#submit').hide();
+                  $('.input-fields').hide();
+                  $('.topbar2').css('margin-top','0px');
+                  $('#reset').css('width','');
+
                   filtered.map((x) => {
                     const {
                       player_won,
@@ -218,13 +224,13 @@
                           </div>
                           <div class="player-container">
                             <div class="user-container">
-                              <div><h2 style="text-transform: capitalize; background-color: #00000070; padding: 11px 40px; border: none; border-radius: 5px;"><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${outcome} (${userGod})</h2></div>
+                              <div><h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;">⮟&nbsp;&nbsp;<a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${outcome} (${userGod})&nbsp;&nbsp;⮟</h2></div>
                               <div class="container"></div>
                               <div class="image-container"></div>
                             </div>
                             <div class="opponent-container">
                               <div class="container">
-                                <a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}><h2 style="text-transform: capitalize; background-color: #00000070; padding: 11px 40px; border: none; border-radius: 5px;">${opponentPlayerid}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${opponentOutcome} (${opponentGod})</h2></a>
+                                <h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;">⮟&nbsp;&nbsp;<a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${opponentOutcome} (${opponentGod})&nbsp;&nbsp;⮟</h2></a>
                               </div>
                               <div class="image-container"></div>
                             </div>
@@ -302,6 +308,12 @@
       $('#reset').click(function () {
         $('.logo-and-text2').css('margin','20px 0 2px 0px');
         $('.logo-and-text2').css('transform', 'scale(1)');
+        $('.topbar-input').css('transform', 'scale(1)');
+        $('.topbar2').css('margin-top','20px');
+        $('.topbar2').show();
+        $('#submit').show();
+        $('.input-fields').show();
+        $('#reset').css('width','220px');
         output.html('');
         input.val('');
         button.prop('disabled', true);
