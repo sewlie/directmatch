@@ -716,7 +716,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.695);
+  background-color: rgba(99, 31, 6, 0.286);
   z-index: -9;
 }
 .error-message {
