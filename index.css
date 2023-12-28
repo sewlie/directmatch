@@ -18,6 +18,10 @@
   font-family: GoldmanBold;
   src: url(Goldman-Bold.ttf);
 }
+
+
+@media only screen and (min-width: 821px) {
+
 #background-video {
     width: 100vw;
     height: 100vh;
@@ -42,15 +46,15 @@
   font-size: 16px;
   position: center;
   margin: 10px 10px;
-  padding: 20px;
-  max-width: 250px;
+  padding: 10px;
+  width: 300px;
   line-height: 20px;
   text-align: center;
   align-items: center;
 }
 #output h2 {
     align-items: center;
-    font-size: 20px;
+    font-size: 28px;
 }
 .profile {
   background-color: rgba(255, 255, 255, 0.2);
@@ -110,8 +114,8 @@
 }
 .gu-logo {
   width: auto;
-  height: 8vw;
-  margin: 0px 0 2px 0px;
+  height: 12vw;
+  margin: 20px 0 2px 0px;
 }
 
 #container {
@@ -136,6 +140,11 @@
   display: flex;
 }
 
+.button-fields {
+  display: flex;
+  margin: 0 0 0 5px;
+}
+
 #textbox {
   padding: 10px;
   margin-right: 10px;
@@ -153,8 +162,24 @@
   margin: 0 0 0 10px;
 }
 
+#reset {
+  font-weight: 600;
+  background-color: #00000000;
+  border-color: #0000008d;
+  color: rgba(0, 0, 0, 0.738);
+  padding: 11px 40px;
+  border-style: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0 0 10px;
+}
+
 #submit:hover {
   background-color: #00000070;
+}
+
+#reset:hover {
+  background-color: #ffffff3e;
 }
 
 .action-button:hover {
@@ -165,7 +190,375 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-color: #b8999961;
+  color: white;
+  padding: 11px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0 0 10px;
+}
+
+/* Add these styles to your CSS */
+.versus-container {
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 25px;
+  margin: 20px 20px 40px 0;
+  width: 70vw;
+  align-items: center;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.versus-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.versus-buttons button {
+  margin: 0 10px;
+}
+
+.versus-container .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.versus-container span {
+  text-transform: capitalize;
+}
+
+.user-container {
+  display: flex;
+}
+
+.opponent-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 15px; */
+}
+
+.versus-container .image-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+/* Style the buttons inside .versus-container */
+.versus-container button {
   background-color: #000000b1;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.versus-container button:hover {
+  background-color: #00000070;
+}
+
+/* Add hover effect to card images */
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+/* Style the opponent GUDecks link */
+.versus-container a {
+  color: #fff700da;
+  text-decoration: none;
+  padding: 0;
+}
+
+.versus-container a:hover {
+  text-decoration: underline;
+  color: #fff700a3;
+}
+
+.details-visible .versus-container {
+  display: none;
+}
+
+.details-visible .versus-container.details-visible {
+  display: flex;
+}
+
+.details-visible .action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000000b1;
+  color: white;
+  padding: 11px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0 0 10px;
+}
+
+.details-visible .action-button:hover {
+  background-color: #00000070;
+}
+.card-image {
+  padding: 5px;
+  width: 12vw;
+  height: auto;
+  transition: all 0.1s ease-in-out;
+}
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+body p {
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+body::before {
+  content: "";
+  position: fixed; /* Use fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.695);
+  z-index: -9;
+}
+.error-message {
+  color: rgba(255, 0, 0, 0.764);
+  text-align: center;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.286);
+  padding: 20px;
+  border-radius: 10px;
+  /* Add the following styles */
+  margin: 0 auto; /* Center horizontally */
+  width: 250px; /* Adjust the width as needed */
+}
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 820px) {
+
+  #background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -10;
+}
+#output {
+  display: flex;
+  flex-direction:column;
+  margin: 10px 0 60px 0px;
+  align-items: center;
+  top: 50%;
+  position: relative;
+  bottom: 50%
+}
+#output button {
+  font-size: 16px;
+  position: center;
+  margin: 10px 10px;
+  padding: 10px;
+  /* max-width: 298px; */
+  width: 300px;
+  line-height: 20px;
+  text-align: center;
+  align-items: center;
+}
+#output h2 {
+    align-items: center;
+    font-size: 20px;
+}
+.profile {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 25px;
+}
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 30px 0px 30px;
+    justify-content: center;
+}
+.topbar2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Add new styles for the topbar2-text class */
+.topbar2-text {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 20px;
+  max-width: 500px;
+  text-align: center;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.286);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 0 10px 0;
+}
+.topbar h1 {
+  font-size: 18px;
+  font-family: Unchained2;
+}
+
+.logo-and-text p {
+  font-family: Goldman;
+  font-weight: normal;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  margin: 5px 20px 0 5px;
+  text-align: left;
+  font-size: 20px;
+}
+.logo-and-text2 h1 {
+  font-size: 16px;
+  font-family: Unchained;
+}
+.logo {
+    width: auto;
+    height: 32px;
+    margin: 5px 0 0 10px;
+}
+.gu-logo {
+  width: auto;
+  height: 80px;
+  margin: 20px 0 2px 0px;
+}
+
+#container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-control {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.topbar-input {
+  display: flex;
+  margin: 0 20px;
+  flex-direction: column;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  /* width: 61vw; */
+}
+
+.button-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#textbox {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-width: 0px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+#submit {
+  background-color: #000000b1;
+  color: white;
+  padding: 11px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0 5px 0;
+  width: 220px;
+}
+
+#reset {
+  font-weight: 600;
+  background-color: #00000000;
+  border-color: #0000008d;
+  color: rgba(0, 0, 0, 0.738);
+  padding: 11px 40px;
+  border-style: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin: 0 0 0 10px; */
+  width: 220px;
+}
+
+#submit:hover {
+  background-color: #00000070;
+}
+
+#reset:hover {
+  background-color: #ffffff3e;
+}
+
+.action-button:hover {
+  background-color: #00000070;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #b8999961;
   color: white;
   padding: 11px 40px;
   border: none;
@@ -287,9 +680,9 @@
   background-color: #00000070;
 }
 .card-image {
-  max-height: 250px;
-  padding: 10px 20px 20px 20px;
-  width: auto;
+  padding: 5px;
+  width: 15vw;
+  height: auto;
   transition: all 0.1s ease-in-out;
 }
 .card-image:hover {
@@ -332,4 +725,6 @@ body::before {
   /* Add the following styles */
   margin: 0 auto; /* Center horizontally */
   width: 250px; /* Adjust the width as needed */
+}
+
 }
