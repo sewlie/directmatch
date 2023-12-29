@@ -10,7 +10,7 @@
 
 <body>
   <div class="logo-and-text" style="display: flex;justify-content: left;align-items: center;">
-    <img class="logo" src="GUSlogo.png" alt="GUStakes Logo">  
+    <img class="logo" src="GUSlogoTRW.png" alt="GUStakes Logo">  
     <p>GUSLabs</p>
   </div>
 
@@ -72,123 +72,129 @@
     });
   </script>
 
-  <script>
-    $(document).ready(function () {
-      const input = $('#textbox');
-      const button = $('#submit');
-      const timeStamp = $('#timestamp');
-      const output = $('#output');
+<script>
+  $(document).ready(function () {
+    const input = $('#textbox');
+    const button = $('#submit');
+    const timeStamp = $('#timestamp');
+    const output = $('#output');
 
-      function toggleSubmitButton() {
-        const playerId = input.val();
-        const dateSelected = timeStamp.val();
-        button.prop('disabled', !(playerId && dateSelected));
-      }
+    function toggleSubmitButton() {
+      const playerId = input.val();
+      const dateSelected = timeStamp.val();
+      button.prop('disabled', !(playerId && dateSelected));
+    }
 
-      function highlightInputBox() {
-        const originalColor = input.css('background-color');
-        input.css('background-color', 'white');
-        input.animate({ 'background-color': originalColor }, 2000);
-      }
+    function highlightInputBox() {
+      const originalColor = input.css('background-color');
+      input.css('background-color', 'white');
+      input.animate({ 'background-color': originalColor }, 2000);
+    }
 
-      function displayErrorMessage(message) {
-        output.empty();
-        const errorMessage = $(`<p class="error-message" style="color: red;">${message}</p>`);
-        output.append(errorMessage);
-        const originalColor = input.css('background-color');
-        input.css('background-color', 'red');
-        input.animate({ 'background-color': originalColor }, 2000);
-        setTimeout(() => {
-          errorMessage.fadeOut(2000, function () {
-            errorMessage.remove();
-            input.css('background-color', originalColor);
-          });
-        }, 4000);
-      }
+    function displayErrorMessage(message) {
+      output.empty();
+      const errorMessage = $(`<p class="error-message" style="color: red;">${message}</p>`);
+      output.append(errorMessage);
+      const originalColor = input.css('background-color');
+      input.css('background-color', 'red');
+      input.animate({ 'background-color': originalColor }, 2000);
+      setTimeout(() => {
+        errorMessage.fadeOut(2000, function () {
+          errorMessage.remove();
+          input.css('background-color', originalColor);
+        });
+      }, 4000);
+    }
 
-      input.on('input', function () {
-        toggleSubmitButton();
-        input.css('background-color', 'white');
-      });
+    input.on('input', function () {
+      toggleSubmitButton();
+      input.css('background-color', 'white');
+    });
 
-      timeStamp.on('change', toggleSubmitButton);
+    timeStamp.on('change', toggleSubmitButton);
 
-      $('#submit').click(function () {
-        try {
-          const playerid = input.val();
-          const time = timeStamp.val();
+    $('#submit').click(function () {
+      try {
+        const playerid = input.val();
+        const time = timeStamp.val();
 
-          if (!playerid.trim()) {
-            displayErrorMessage("Please input your Gods Unchained Player ID");
-            highlightInputBox();
-            return;
-          }
+        if (!playerid.trim()) {
+          displayErrorMessage("Please input your Gods Unchained Player ID");
+          highlightInputBox();
+          return;
+        }
 
-          const invalidInput = /\D/.test(playerid);
-          if (invalidInput) {
-            displayErrorMessage("Your Player ID must only contain numbers");
-            highlightInputBox();
-            return;
-          }
+        const invalidInput = /\D/.test(playerid);
+        if (invalidInput) {
+          displayErrorMessage("Your Player ID must only contain numbers");
+          highlightInputBox();
+          return;
+        }
 
-          const myCards = [];
-          const matches = [];
-          let wonRecords;
-          let lostRecords;
-          let username;
+        const myCards = [];
+        const matches = [];
+        let wonRecords;
+        let lostRecords;
+        let username;
 
-          $.get(`https://api.godsunchained.com/v0/properties?user_id=${playerid}`, (d) => {
-            const dat = JSON.parse(d);
+        $.get(`https://api.godsunchained.com/v0/properties?user_id=${playerid}`, (d) => {
+          const dat = JSON.parse(d);
 
-            const recs = dat.records;
-            const user = recs[0];
+          const recs = dat.records;
+          const user = recs[0];
 
-            username = user.username;
+          username = user.username;
 
-            $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_won=${playerid}`, (data) => {
+          $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_won=${playerid}`, (data) => {
+            const obj = JSON.parse(data);
+            wonRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
+            matches.push(wonRecords);
+            $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_lost=${playerid}`, (data) => {
               const obj = JSON.parse(data);
-              wonRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
-              matches.push(wonRecords);
-              $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_lost=${playerid}`, (data) => {
-                const obj = JSON.parse(data);
-                lostRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
-                matches.push(lostRecords);
+              lostRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
+              matches.push(lostRecords);
 
-                const flattened = matches.flat();
-                const filtered = flattened.filter((x) => x !== null);
+              const flattened = matches.flat();
+              const filtered = flattened.filter((x) => x !== null);
 
-                if (output.children().length === 0) {
-                  const resultDiv = $('<div class="playercard">');
+              if (output.children().length === 0) {
+                const resultDiv = $('<div class="playercard">');
 
-                  resultDiv.append(`<h2 style="font-size: 28px">${username}</h2>`);
-                  resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
-                  output.append(resultDiv);
+                resultDiv.append(`<h2 style="font-size: 28px">${username}</h2>`);
+                resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
+                output.append(resultDiv);
 
-                  // Shrink the gu-logo down
-                  $('.logo-and-text2').css('transition', 'calc(1s)');
-                  $('.logo-and-text2').css('transform', 'scale(0.5)');
-                  $('.logo-and-text2').css('margin','-60px 0 -40px 0');
+                // Shrink the gu-logo down
+                $('.logo-and-text2').css('transition', 'calc(1s)');
+                $('.logo-and-text2').css('transform', 'scale(0.5)');
+                $('.logo-and-text2').css('margin','-40px 0 -40px 0');
 
-                  $('.topbar2').hide();
-                  $('#submit').hide();
-                  $('.input-fields').hide();
-                  $('.topbar2').css('margin-top','0px');
-                  $('#reset').css('width','');
+                $('.topbar2').hide();
+                $('#submit').hide();
+                $('.input-fields').hide();
+                $('.topbar2').css('margin-top','0px');
+                $('#reset').css('width','');
 
-                  filtered.map((x) => {
-                    const {
-                      player_won,
-                      player_lost
-                    } = x;
-                    const participants = [player_won, player_lost];
-                    console.log(participants);
-                    const opponentid = participants.find((x) => x !== parseInt(playerid));
-                    const matchId = x.game_id; // Save the match ID
-                    const containerId = `${matchId}-container`;
+                filtered.map((x) => {
+                  const { player_won, player_lost } = x;
+                  const participants = [player_won, player_lost];
+                  const opponentid = participants.find((x) => x !== parseInt(playerid));
+                  const matchId = x.game_id; // Save the match ID
+                  const containerId = `${matchId}-container`;
+
+                  $.get(`https://api.godsunchained.com/v0/properties?user_id=${opponentid}`, (opponentData) => {
+                    const opponentInfo = JSON.parse(opponentData).records[0];
+                    const opponentUsername = opponentInfo.username;
+
+                    const outcome = parseInt(player_won) === parseInt(playerid) ? '<p>W</p>' : '<p>L</p>';
+                    const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p>W</p>' : '<p>L</p>';
 
                     output.append(`
                       <div id='${containerId}'>
-                        <button style="min-width: 40%; margin: 10px auto;" class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
+                        <button style="margin: 10px auto; width: 400px;" class='action-button ${outcome.toLowerCase()}'
+                          data-match-id="${matchId}">
+                          ${outcome}&nbsp;&nbsp;${username} vs. ${opponentUsername}&nbsp;&nbsp;${opponentOutcome}
+                        </button>
                       </div>
                     `);
 
@@ -197,25 +203,14 @@
                       const id = $(e.target).data('match-id');
                       const targetMatchArr = filtered.filter(x => x.game_id === id);
                       const targetMatch = targetMatchArr[0];
-                      const {
-                        player_won,
-                        player_info
-                      } = targetMatch;
-                      const outcome = parseInt(player_won) === parseInt(playerid) ? 'Won' : 'Lost';
-                      const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? 'Won' : 'Lost';
+                      const { player_won, player_info } = targetMatch;
+                      const outcome = parseInt(player_won) === parseInt(playerid) ? '<p">Win</p>' : '<p>Loss</p>';
+                      const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p>Win</p>' : '<p>Loss</p>';
 
                       const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
                       const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
-                      const {
-                        cards: userCards,
-                        god: userGod
-                      } = userInfo;
-                      const {
-                        cards: opponentCards,
-                        user_id: opponentPlayerid,
-                        god: opponentGod
-                      } = opponentInfo;
-                      console.log(id);
+                      const { cards: userCards, god: userGod } = userInfo;
+                      const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
 
                       const container = `
                         <div id="${id}" class="versus-container">
@@ -224,13 +219,14 @@
                           </div>
                           <div class="player-container">
                             <div class="user-container">
-                              <div><h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;">⮟&nbsp;&nbsp;<a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${outcome} (${userGod})&nbsp;&nbsp;⮟</h2></div>
+                              <div><h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;"><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${userGod}&nbsp;&nbsp;-&nbsp;&nbsp;${outcome}</h2></div>
                               <div class="container"></div>
                               <div class="image-container"></div>
                             </div>
+                            <div class="line"></div>
                             <div class="opponent-container">
                               <div class="container">
-                                <h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;">⮟&nbsp;&nbsp;<a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${opponentOutcome} (${opponentGod})&nbsp;&nbsp;⮟</h2></a>
+                                <h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;"><a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentUsername}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${opponentGod}&nbsp;&nbsp;-&nbsp;&nbsp;${opponentOutcome}</h2></a>
                               </div>
                               <div class="image-container"></div>
                             </div>
@@ -244,8 +240,6 @@
                         // Show the "Close" button after clicking "See Match Details"
                         $(`#${id}-${playerid}-close`).show();
                       }
-
-                      console.log($(`#${id}-container`).children());
 
                       const showCards = (cards, target) => {
                         const myCards = [];
@@ -266,7 +260,6 @@
                             return a.mana - b.mana;
                           });
 
-                          console.log(sorted);
                           sorted.map((x) => {
                             if ($(`#${id}-container`).find(target).find(".image-container").children().length <= sorted.length - 1) {
                               $(`#${id}-container`).find(target).find(".image-container").append(`<img class="card-image" src=${x.image}/>`);
@@ -280,81 +273,73 @@
                     });
 
                     $(`#${containerId}`).on('click', '.close-button', function (event) {
-                      console.log("Close button clicked!");
-
-                      // Get the ID of the clicked close button
                       const closeBtnId = event.currentTarget.id;
                       const id = closeBtnId.split("-");
                       id.pop();
                       id.pop();
                       const matchId = id.join("-");
-                      console.log(matchId);
-
-                      // Your existing logic for handling close button click goes here
                       const container = $(`#${matchId}`);
                       container.remove();
                     });
                   });
-                }
-              });
+                });
+              }
             });
           });
-        } catch (error) {
-          console.error("An error occurred:", error);
-          alert("An error occurred. Please check the console for details.");
-        }
-      });
-
-      $('#reset').click(function () {
-        $('.logo-and-text2').css('margin','20px 0 2px 0px');
-        $('.logo-and-text2').css('transform', 'scale(1)');
-        $('.topbar-input').css('transform', 'scale(1)');
-        $('.topbar2').css('margin-top','20px');
-        $('.topbar2').show();
-        $('#submit').show();
-        $('.input-fields').show();
-        $('#reset').css('width','220px');
-        output.html('');
-        input.val('');
-        button.prop('disabled', true);
-        $('#timestamp').val('');
-
-        // Destroy the existing Flatpickr instance
-        const flatpickrInstance = flatpickr("#timestamp");
-        flatpickrInstance.destroy();
-
-        // Reinitialize Flatpickr
-        initializeFlatpickr();
-      });
-
-      // Function to initialize Flatpickr
-      function initializeFlatpickr() {
-        try {
-          flatpickr("#timestamp", {
-            enableTime: false,
-            altInput: true,
-            altFormat: "F j, Y",
-            dateFormat: "U",
-            onChange: function (selectedDates, dateStr, instance) {
-              const timestampHiddenElement = document.getElementById("timestamp-hidden");
-              if (timestampHiddenElement) {
-                const unixTimestamp = dateStr;
-                timestampHiddenElement.value = unixTimestamp;
-              }
-            }
-          });
-        } catch (error) {
-          console.error("An error occurred:", error);
-          alert("An error occurred. Please check the console for details.");
-        }
+        });
+      } catch (error) {
+        console.error("An error occurred:", error);
+        alert("An error occurred. Please check the console for details.");
       }
-
-      // Initialize Flatpickr on document load
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeFlatpickr();
-      });
     });
-  </script>
+
+    $('#reset').click(function () {
+      $('.logo-and-text2').css('margin','20px 0 2px 0px');
+      $('.logo-and-text2').css('transform', 'scale(1)');
+      $('.topbar-input').css('transform', 'scale(1)');
+      $('.topbar2').css('margin-top','20px');
+      $('.topbar2').show();
+      $('#submit').show();
+      $('.input-fields').show();
+      $('#reset').css('width','');
+      output.html('');
+      input.val('');
+      button.prop('disabled', true);
+      $('#timestamp').val('');
+
+      const flatpickrInstance = flatpickr("#timestamp");
+      flatpickrInstance.destroy();
+
+      initializeFlatpickr();
+    });
+
+    function initializeFlatpickr() {
+      try {
+        flatpickr("#timestamp", {
+          enableTime: false,
+          altInput: true,
+          altFormat: "F j, Y",
+          dateFormat: "U",
+          onChange: function (selectedDates, dateStr, instance) {
+            const timestampHiddenElement = document.getElementById("timestamp-hidden");
+            if (timestampHiddenElement) {
+              const unixTimestamp = dateStr;
+              timestampHiddenElement.value = unixTimestamp;
+            }
+          }
+        });
+      } catch (error) {
+        console.error("An error occurred:", error);
+        alert("An error occurred. Please check the console for details.");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeFlatpickr();
+    });
+  });
+</script>
+
 
   <script>
     let vid = document.getElementById("background-video");
