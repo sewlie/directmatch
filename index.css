@@ -58,21 +58,34 @@
 #output button #text {
   font-family: ElMessiri;
 }
-#output button p {
+#output button p1 {
   font-size: 14px;
-  align-items: center;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background: #00000024;
-  border-radius: 5px;
-  padding: 1px 6px;
+  background: #08492351;
+  border-radius: 4px;
+  padding: 5px 7px;
   margin: 0 5px;
   font-family: Goldman;
   font-weight: normal;
 }
 #output button p2 {
+  font-size: 18px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   font-family: ElMessiri;
+  font-weight: normal;
+}
+#output button p3 {
+  font-size: 14px;
+  display: flex;
+  background: #7c0c0c46;
+  border-radius: 4px;
+  padding: 5px 7px;
+  margin: 0 5px;
+  font-family: Goldman;
+  font-weight: normal;
 }
 #output h2 {
     margin: 0;
