@@ -186,14 +186,14 @@
                     const opponentInfo = JSON.parse(opponentData).records[0];
                     const opponentUsername = opponentInfo.username;
 
-                    const outcome = parseInt(player_won) === parseInt(playerid) ? '<p>W</p>' : '<p>L</p>';
-                    const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p>W</p>' : '<p>L</p>';
+                    const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>W</p1>' : '<p3>L</p3>';
+                    const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>W</p1>' : '<p3>L</p3>';
 
                     output.append(`
                       <div id='${containerId}'>
                         <button style="margin: 10px auto; width: 400px;" class='action-button ${outcome.toLowerCase()}'
                           data-match-id="${matchId}">
-                          ${outcome}&nbsp;&nbsp;${username} vs. ${opponentUsername}&nbsp;&nbsp;${opponentOutcome}
+                          ${outcome}<p2>${username} vs. ${opponentUsername}</p2>${opponentOutcome}
                         </button>
                       </div>
                     `);
@@ -225,6 +225,9 @@
                             </div>
                             <div class="line"></div>
                             <div class="opponent-container">
+                              <div class="versus-buttons">
+                            <button class="close-button" id="${id}-${playerid}-close">Close</button>
+                              </div>
                               <div class="container">
                                 <h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;"><a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentUsername}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${opponentGod}&nbsp;&nbsp;-&nbsp;&nbsp;${opponentOutcome}</h2></a>
                               </div>
