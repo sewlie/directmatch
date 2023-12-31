@@ -23,11 +23,10 @@
 body {
   background-image: url(bg.png);
   margin: 0;
-  max-width: 80vw;
-  max-height: 100vw;
-  display: flex;
-  flex-direction: column;
-  margin: 5vw 20vw 0;
+  /* max-width: 80vw; */
+  /* max-height: 100vw; */
+  /* display: flex; */
+  /* flex-direction: column; */
   font-family: ElMessiriBold;
   font-weight: bold;
   background-repeat: no-repeat;
@@ -35,6 +34,7 @@ body {
   background-size: cover;
   background-color: black;
   color: rgb(255, 255, 255);
+  /* left: 50%; */
 }
 
 #background-video {
@@ -116,7 +116,19 @@ margin-top: 20px;
 }
 
 /* Add new styles for the topbar2-text class */
-.topbar2-text {font-size: 12px;font-family: "Open Sans", sans-serif;font-weight: normal;letter-spacing: 0.5px;line-height: 20px;/* max-width: 500px; */text-align: center;width: 40vw;background-color: rgba(0, 0, 0, 0.286);padding: 20px 30px;border-radius: 10px;/* margin: 0 0 10px 0; */}
+.topbar2-text {
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  text-align: center;
+  width: 47vw;
+  background-color: rgba(0, 0, 0, 0.286);
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+
 .topbar h1 {
 font-size: 18px;
 font-family: ElMessiri;
@@ -127,7 +139,6 @@ font-family: Goldman;
 font-weight: normal;
 color: rgb(255, 255, 255);
 margin: 0;
-margin: 0px 0px 0 0px;
 text-align: left;
 font-size: 20px;
 }
@@ -142,16 +153,19 @@ font-size: 20px;
   margin: 5px 2px 0 0;
 }
 .gu-logo {
+  margin: 40px 0 0 0;
   width: auto;
   height: 8vw;
-  /* margin: 15vw 0 0 0; */
 }
 
 #container {text-align: center;margin-top: 30px;/* width: 80vw; */display: flex;}
 
 .form-control {padding: 10px;border: none;border-radius: 5px;width: 50vw;margin-bottom: 5px;text-align: center;}
 
-.topbar-input {display: flex;/* margin: 0 20px; */transition: calc(1s);/* width: 80vw; */flex-direction: column;}
+.topbar-input {
+  display: flex;
+  flex-direction: column;
+}
 
 .input-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-items: center;align-content: center;justify-content: center;font-family: "Open Sans", sans-serif;/* width: 100vw; */}
 
