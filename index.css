@@ -117,11 +117,11 @@ margin-top: 20px;
 
 /* Add new styles for the topbar2-text class */
 .topbar2-text {
-  font-size: 12px;
+  font-size: 18px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
-  letter-spacing: 0.5px;
-  line-height: 20px;
+  letter-spacing: 0.8px;
+  line-height: 26px;
   text-align: center;
   width: 47vw;
   background-color: rgba(0, 0, 0, 0.286);
@@ -168,6 +168,7 @@ font-size: 20px;
   min-width: 50vw;
   margin-bottom: 5px;
   text-align: center;
+  font-size: 18px;
 }
 
 .flatpickr-mobile {
@@ -185,11 +186,21 @@ font-size: 20px;
   flex-direction: column;
 }
 
-.input-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-items: center;align-content: center;justify-content: center;font-family: "Open Sans", sans-serif;/* width: 100vw; */}
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  /* font-size: 18px; */
+}
 
 .button-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;/* width: 100vw; */}
 
-#textbox {padding: 10px;margin-bottom: 10px;border-width: 0px;border-radius: 5px;width: 50vw;text-align: center;}
+#textbox {padding: 10px;margin-bottom: 10px;border-width: 0px;border-radius: 5px;width: 50vw;text-align: center;
+  font-size: 18px;}
 
 #submit {background-color: #000000b1;color: white;padding: 11px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;width: 40vw;}
 
@@ -356,6 +367,7 @@ letter-spacing: 1px;
 font-weight: bold;
 color: rgb(255, 255, 255);
 margin: 0;
+font-size: 18px;
 }
 
 body::before {
