@@ -14,18 +14,17 @@
   <div class="logo-and-text2" style="text-align: center;">
     <img class="gu-logo" src="GU logo2.png" alt="GU Logo">
 
-
-  <div class="topbar">
-    <h1 style="margin: -5px 0 0 0; text-align: center;">Direct Match History</h1>
-    <div class="logo-and-text" style="display: flex;justify-content: center;align-items: center;">
-      <img class="logo" src="GUSlogoTRW.png" alt="GUStakes Logo">  
-      <p style="font-size: 1.6vw; margin-top: 5px">Developed by GUSLabs</p>
+    <div class="topbar">
+      <h1 style="margin: -5px 0 0 0; text-align: center;">Direct Match History</h1>
+      <div class="logo-and-text" style="display: flex;justify-content: center;align-items: center;">
+        <img class="logo" src="GUSlogoTRW.png" alt="GUStakes Logo">  
+        <p style="font-size: 1.6vw; margin-top: 5px">Developed by GUSLabs</p>
+      </div>
     </div>
   </div>
-</div>
 
   <div class="topbar2">
-    <p class="topbar2-text">Enter your Gods Unchained Player ID below and select a date within the last three days for your recent match.</p>
+    <p class="topbar2-text">Enter your Gods Unchained Player ID below and select a date within the last three days of your match.</p>
   </div>
 
   <div class="topbar-input" id="container">
@@ -58,6 +57,7 @@
           altInput: true,
           altFormat: "F j, Y",
           dateFormat: "U",
+          disableMobile: true, // Disables mobile functionality
           onChange: function (selectedDates, dateStr, instance) {
             const timestampHiddenElement = document.getElementById("timestamp-hidden");
             if (timestampHiddenElement) {
@@ -304,6 +304,7 @@
           altInput: true,
           altFormat: "F j, Y",
           dateFormat: "U",
+          disableMobile: true, // Disables mobile functionality
           onChange: function (selectedDates, dateStr, instance) {
             const timestampHiddenElement = document.getElementById("timestamp-hidden");
             if (timestampHiddenElement) {
