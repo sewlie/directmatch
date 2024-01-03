@@ -145,18 +145,18 @@
               const filtered = flattened.filter((x) => x !== null);
               if (output.children().length === 0) {
                 const resultDiv = $('<div class="playercard">');
-                resultDiv.append(`<h2 style="font-size: 28px">${username}</h2>`);
+                resultDiv.append(`<h2>${username}</h2>`);
                 resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
                 output.append(resultDiv);
 
                 // Shrink the gu-logo down
 
-                $('.gu-logo').css('height', '8vw');
+                $('.logo-and-text2').hide();
                 $('.topbar2').hide();
                 $('#submit').hide();
                 $('.input-fields').hide();
                 $('.topbar2').css('margin-top','0px');
-                $('#reset').css('margin','0');
+                $('#reset').css('margin','25px 0 20px 0');
 
                 filtered.map((x) => {
                     const {
@@ -279,12 +279,15 @@
 
 
     $('#reset').click(function () {
+      $('.gu-logo').css('scale', 'calc(1)');
       $('.topbar-input').css('transform', 'scale(1)');
       $('.topbar2').css('margin-top','20px');
       $('.topbar2').show();
       $('#submit').show();
       $('.input-fields').show();
+      $('.logo-and-text2').show();
       $('#reset').css('width','');
+      $('#reset').css('margin','5px 0 0 0');
 
       output.html('');
       input.val('');
