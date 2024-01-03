@@ -21,12 +21,8 @@
 
 
 body {
-  background-image: url(bg.png);
+  background-image: url(bg2.png);
   margin: 0;
-  /* max-width: 80vw; */
-  /* max-height: 100vw; */
-  /* display: flex; */
-  /* flex-direction: column; */
   font-family: ElMessiriBold;
   font-weight: bold;
   background-repeat: no-repeat;
@@ -34,9 +30,7 @@ body {
   background-size: cover;
   background-color: black;
   color: rgb(255, 255, 255);
-  /* left: 50%; */
 }
-
 #background-video {
 display: none;
 overflow: hidden;
@@ -102,27 +96,23 @@ padding: 25px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
-.topbar2 {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-margin-top: 20px;
-}
+.topbar2 {display: flex;flex-wrap: wrap;justify-content: center;/* margin-top: 20px; */}
 
 /* Add new styles for the topbar2-text class */
 .topbar2-text {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
   letter-spacing: 0.8px;
-  line-height: 26px;
+  line-height: 22px;
   text-align: center;
-  width: 60vw;
+  width: 40vw;
   background-color: rgba(0, 0, 0, 0.286);
   padding: 20px 30px;
   border-radius: 10px;
-  margin-top: 40px;
+  margin: 40px 0 20px 0;
 }
 
 .topbar h1 {
@@ -131,22 +121,20 @@ font-family: ElMessiri;
 }
 
 .logo-and-text p {
-font-family: Goldman;
-font-weight: normal;
-color: rgb(255, 255, 255);
-margin: 0;
-text-align: left;
-font-size: 20px;
-}
-.logo-and-text2 h1 {
-  font-size: 3vw;
-  font-family: Unchained;
+  font-size: 5vw;
+  font-family: 'Goldman';
+  font-weight: 100;
+  letter-spacing: 1px;
 }
 
 .logo {
   width: auto;
   height: 3vw;
-  margin: 5px 2px 0 0;
+  margin: 2px 3px 0 -10px;
+}
+.dmlogo {
+  width: 60vw;
+  margin: 40px 0 0 0;
 }
 .gu-logo {
   margin: 40px 0 0 0;
@@ -157,7 +145,7 @@ font-size: 20px;
 #container {text-align: center;margin-top: 30px;/* width: 80vw; */display: flex;}
 
 .form-control {
-  padding: 10px;
+  padding: 20px 0;
   border: none;
   border-radius: 5px;
   width: 80vw;
@@ -193,11 +181,11 @@ font-size: 20px;
   /* font-size: 18px; */
 }
 
-.button-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;/* width: 100vw; */}
+.button-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;/* width: 100vw; */margin: 20px 0 0 0;}
 
 #textbox {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 20px 0;
+  margin-bottom: 15px;
   border-width: 0px;
   border-radius: 5px;
   width: 80vw;
@@ -205,9 +193,9 @@ font-size: 20px;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 11px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;width: 35vw;font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 20px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;width: 25vw;font-size: 18px;}
 
-#reset {font-weight: 600;background-color: #00000000;border-color: #0000008d;color: rgba(0, 0, 0, 0.738);padding: 11px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;width: 35vw;margin: 5px 0 0 0;font-size: 18px;}
+#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 20px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;width: 25vw;margin: 5px 0 0 0;font-size: 18px;}
 
 #submit:hover {
 background-color: #00000070;
@@ -221,25 +209,7 @@ background-color: #ffffff3e;
 background-color: #00000070;
 }
 
-.action-button {
-display: flex;
-flex-direction: row;
-text-align: center;
-background-color: #b8999961;
-color: white;
-padding: 11px 40px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-width: 40vw;
-padding: 20px;
-margin: 10px auto;
-justify-content: space-evenly;
-align-items: center;
-font-size: 22px;
-font-family: Open Sans, sans-serif;
-font-weight: 600;
-}
+.action-button {/* background-color: #b3929261; */display: flex;flex-direction: row;background-color: rgb(47 167 202 / 20%);color: white;padding: 11px 40px;border: none;border-radius: 5px;cursor: pointer;width: 50vw;padding: 20px;margin: 10px auto;justify-content: space-evenly;align-items: center;font-size: 22px;font-family: Open Sans, sans-serif;font-weight: 600;}
 
 /* Style for 'W' */
 .action-button.won {
@@ -252,7 +222,7 @@ color: red;
 }
 
 
-.playercard {display: flex;margin: auto;flex-direction: column;flex-wrap: wrap;align-items: center;background-color: rgba(0, 0, 0, 0.286);border-radius: 10px;padding: 20px 0px 20px 0px;margin: 20px 0;width: 60vw;}
+.playercard {display: flex;margin: auto;flex-direction: column;flex-wrap: wrap;align-items: center;background-color: rgb(21 36 55 / 50%);border-radius: 10px;padding: 20px 0px 20px 0px;margin: 20px 0;width: 50vw;}
 
 .playercard h2 {
 font-family: Unchained;
@@ -355,12 +325,7 @@ display: none;
 .details-visible .versus-container.details-visible {
 display: flex;
 }
-.card-image {
-padding: 5px;
-width: 16vw;
-height: auto;
-transition: all 0.1s ease-in-out;
-}
+.card-image {padding: 5px;width: 6vw;height: auto;transition: all 0.1s ease-in-out;}
 .card-image:hover {
 transform: scale(1.1);
 }
@@ -373,17 +338,6 @@ font-weight: bold;
 color: rgb(255, 255, 255);
 margin: 0;
 font-size: 18px;
-}
-
-body::before {
-content: "";
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(99, 31, 6, 0.286);
-z-index: -9;
 }
 .error-message {
 color: rgba(255, 0, 0, 0.764);
