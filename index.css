@@ -108,11 +108,11 @@ padding: 25px;
   letter-spacing: 0.8px;
   line-height: 22px;
   text-align: center;
-  width: 40vw;
+  width: 60vw;
   background-color: rgba(0, 0, 0, 0.286);
   padding: 20px 30px;
   border-radius: 10px;
-  margin: 40px 0 20px 0;
+  margin: 30px 0 20px 0;
 }
 
 .topbar h1 {
@@ -121,25 +121,34 @@ font-family: ElMessiri;
 }
 
 .logo-and-text p {
-  font-size: 5vw;
+  margin: 10px 0 0 0;
+  font-size: 3vw;
   font-family: 'Goldman';
   font-weight: 100;
   letter-spacing: 1px;
+  
+}
+
+.logo-and-text {
+  background-color: #0000009e;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
 }
 
 .logo {
   width: auto;
-  height: 3vw;
-  margin: 2px 3px 0 -10px;
+  height: 25px;
+  margin: 6px 3px 6px -10px;
 }
+
+
+
 .dmlogo {
-  width: 60vw;
-  margin: 40px 0 0 0;
-}
-.gu-logo {
-  margin: 40px 0 0 0;
-  width: auto;
-  height: 8vw;
+  width: 250px;
+  margin: 70px 0 0 0;
 }
 
 #container {
@@ -198,9 +207,9 @@ font-family: ElMessiri;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 20px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;width: 25vw;font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 20px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
 
-#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 20px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;width: 25vw;margin: 5px 0 0 0;font-size: 18px;}
+#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 20px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
 
 #submit:hover {
 background-color: #00000070;
