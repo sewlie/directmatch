@@ -195,7 +195,7 @@ font-family: ElMessiri;
   /* font-size: 18px; */
 }
 
-.button-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;/* width: 100vw; */margin: 5px 0 0 0;}
+.button-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;/* width: 100vw; */margin: 5px 0;}
 
 #textbox {
   padding: 20px 0;
