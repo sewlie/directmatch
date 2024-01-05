@@ -134,7 +134,7 @@ font-family: ElMessiri;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
 }
 
@@ -148,7 +148,7 @@ font-family: ElMessiri;
 
 .dmlogo {
   width: 250px;
-  margin: 70px 0 0 0;
+  margin: 40px 0 0 0;
 }
 
 #container {
@@ -207,9 +207,9 @@ font-family: ElMessiri;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 20px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 15px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
 
-#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 20px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
+#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
 
 #submit:hover {
 background-color: #00000070;
