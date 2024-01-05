@@ -148,12 +148,12 @@ font-family: ElMessiri;
 
 .dmlogo {
   width: 250px;
-  margin: 40px 0 0 0;
+  margin: 30px 0 0 0;
 }
 
 #container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -164,7 +164,7 @@ font-family: ElMessiri;
   border-radius: 5px;
   width: 80vw;
   min-width: 50vw;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   text-align: center;
   font-size: 18px;
 }
@@ -195,7 +195,15 @@ font-family: ElMessiri;
   /* font-size: 18px; */
 }
 
-.button-fields {display: flex;flex-direction: column;flex-wrap: wrap;align-content: center;justify-content: center;align-items: center;/* width: 100vw; */margin: 5px 0;}
+.button-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
 
 #textbox {
   padding: 20px 0;
