@@ -334,39 +334,12 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () { initializeFlatpickr(); }); }); 
-    // New Fetch matches 
-    async function fetchMatches(gameMode, numMatches) { 
-      const API_ENDPOINT = 'https://api.godsunchained.com/v0/match'; 
-      const params = new URLSearchParams({ 
-        game_mode: gameMode, 
-        start_time: 1704301200, 
-        end_time: 1704560400, 
-        limit: numMatches 
-        
-      }); 
-      try { 
-        const response = await fetch(`${API_ENDPOINT}?${params.toString()}`); 
-        if (!response.ok) { 
-          throw new Error(`Error: ${response.status}`
-          ); 
-          
-        } 
-        const data = await response.json(); return data; 
-        
-      } 
-      catch (error) { 
-        console.error('Failed to fetch matches:', error); 
-        
-      } 
-      
-    } 
-    // Call this function when the page loads 
-    window.onload = () => { fetchMatches(6, 50).then(matches => { 
-      const matchesDiv = document.getElementById('matches'
-      ); 
-      matchesDiv.innerHTML = JSON.stringify(matches, null, 2); 
-    }); 
-    };
+    async function fetchMatches(gameMode, startTime, endTime, maxMatches) { const API_ENDPOINT = 'https://api.godsunchained.com/v0/match'; let currentPage = 1; let fetchedMatches = []; while (fetchedMatches.length < maxMatches) { const params = new URLSearchParams({ game_mode: gameMode, start_time: startTime, end_time: endTime, page: currentPage }); try { const response = await fetch(`${API_ENDPOINT}?${params.toString()}`); if (!response.ok) { throw new Error(`Error: ${response.status}`); } const data = await response.json(); if (data.records && data.records.length > 0) { fetchedMatches = fetchedMatches.concat(data.records); currentPage++; } else { break; 
+    
+    } } catch (error) { console.error('Failed to fetch matches:', error); break; 
+     } } 
+     return fetchedMatches.slice(0, maxMatches); } 
+     window.onload = () => { fetchMatches(6, 1704301200, 1704560400, 50).then(matches => { const matchesDiv = document.getElementById('matches'); matchesDiv.innerHTML = JSON.stringify(matches, null, 2); }); };
 </script>
 
   <script>
