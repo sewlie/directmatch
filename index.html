@@ -39,7 +39,6 @@
       <button id="submit">Submit</button>
       <button id="reset">Reset</button>
     </div>
-    <div id="matches"></div>
   </div>
 
   <div id="output" placeholder="enter player id"></div>
@@ -139,6 +138,7 @@
           $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_won=${playerid}`, (data) => {
             const obj = JSON.parse(data);
             wonRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
+            matches.push(wonRecords);
             matches.push(wonRecords);
             $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_lost=${playerid}`, (data) => {
               const obj = JSON.parse(data);
@@ -334,12 +334,16 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () { initializeFlatpickr(); }); }); 
-    async function fetchMatches(gameMode, startTime, endTime, maxMatches) { const API_ENDPOINT = 'https://api.godsunchained.com/v0/match'; let currentPage = 1; let fetchedMatches = []; while (fetchedMatches.length < maxMatches) { const params = new URLSearchParams({ game_mode: gameMode, start_time: startTime, end_time: endTime, page: currentPage }); try { const response = await fetch(`${API_ENDPOINT}?${params.toString()}`); if (!response.ok) { throw new Error(`Error: ${response.status}`); } const data = await response.json(); if (data.records && data.records.length > 0) { fetchedMatches = fetchedMatches.concat(data.records); currentPage++; } else { break; 
+    async function fetchMatches(gameMode, startTime, endTime, maxMatches) { const API_ENDPOINT = 'https://api.godsunchained.com/v0/match'; let currentPage = 1; let fetchedMatches = []; while (fetchedMatches.length < maxMatches) { const params = new URLSearchParams({ game_mode: gameMode, start_time: startTime, end_time: endTime, page: currentPage }); 
+    
+    console.log("Constructed URL:", `${API_ENDPOINT}?${params.toString()}`); 
+
+    try { const response = await fetch(`${API_ENDPOINT}?${params.toString()}`); if (!response.ok) { throw new Error(`Error: ${response.status}`); } const data = await response.json(); if (data.records && data.records.length > 0) { fetchedMatches = fetchedMatches.concat(data.records); currentPage++; } else { break; 
     
     } } catch (error) { console.error('Failed to fetch matches:', error); break; 
      } } 
      return fetchedMatches.slice(0, maxMatches); } 
-     window.onload = () => { fetchMatches(6, 1704301200, 1704560400, 50).then(matches => { const matchesDiv = document.getElementById('matches'); matchesDiv.innerHTML = JSON.stringify(matches, null, 2); }); };
+     window.onload = () => { fetchMatches(6, 1701882000, 1702054800, 50).then(matches => { const matchesDiv = document.getElementById('matches'); matchesDiv.innerHTML = JSON.stringify(matches, null, 2); }); };
 </script>
 
   <script>
