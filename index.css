@@ -108,11 +108,11 @@ padding: 25px;
   letter-spacing: 0.8px;
   line-height: 18px;
   text-align: center;
-  width: 60vw;
+  width: 70vw;
   background-color: rgba(0, 0, 0, 0.286);
-  padding: 20px 30px;
+  padding: 20px 10px;
   border-radius: 10px;
-  margin: 12px 0 5px 0;
+  margin: 20px 0 5px 0;
 }
 
 .topbar h1 {
@@ -141,13 +141,13 @@ font-family: ElMessiri;
 .logo {
   width: auto;
   height: 20px;
-  margin: 8px 4px 8px -9px;
+  margin: 8px 4px 8px -9px; 
 }
 
 
 
 .dmlogo {
-  width: 300px;
+  width: 250px;
   margin: 30px 0 0 0;
 }
 
@@ -156,6 +156,12 @@ font-family: ElMessiri;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+}
+
+#matches { 
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  margin-top: 20px; 
 }
 
 .form-control {
@@ -215,9 +221,9 @@ font-family: ElMessiri;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 15px 40px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 15px 80px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
 
-#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 40px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
+#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 83px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
 
 #submit:hover {
 background-color: #00000070;
@@ -264,7 +270,7 @@ background-color: #00000070;
   margin: 10px 0 30px 0;
 }
 
-.playercard {display: flex;margin: auto;flex-direction: column;flex-wrap: wrap;align-items: center;background-color: rgb(21 36 55 / 50%);border-radius: 10px;padding: 20px 0px 20px 0px;margin: 10px 0 20px 0;width: 70vw;}
+.playercard {display: flex;margin: auto;flex-direction: column;flex-wrap: wrap;align-items: center;background-color: rgb(0 226 255 / 50%);border-radius: 10px;padding: 20px 0px 20px 0px;margin: 10px 0 20px 0;width: 70vw;}
 
 .playercard h2 {/* font-family: Unchained; */padding: 0 10px;}
 
@@ -384,13 +390,14 @@ transform: scale(1.1);
 
 
 body p {
-font-family: ElMessiri;
+font-family: Open Sans, sans-serif;
 letter-spacing: 1px;
 font-weight: bold;
 color: rgb(255, 255, 255);
 margin: 0;
 font-size: 18px;
 }
+
 .error-message {
 color: rgba(255, 0, 0, 0.764);
 text-align: center;

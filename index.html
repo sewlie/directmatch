@@ -39,6 +39,7 @@
       <button id="submit">Submit</button>
       <button id="reset">Reset</button>
     </div>
+    <div id="matches"></div>
   </div>
 
   <div id="output" placeholder="enter player id"></div>
@@ -158,7 +159,7 @@
                 $('#submit').hide();
                 $('.input-fields').hide();
                 $('.topbar2').css('margin-top','0px');
-                $('#reset').css('margin','25px 0 20px 0');
+                $('#reset').css('margin','25px 0 10px 0');
 
                 filtered.map((x) => {
                     const {
@@ -332,10 +333,40 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      initializeFlatpickr();
-    });
-  });
+    document.addEventListener("DOMContentLoaded", function () { initializeFlatpickr(); }); }); 
+    // New Fetch matches 
+    async function fetchMatches(gameMode, numMatches) { 
+      const API_ENDPOINT = 'https://api.godsunchained.com/v0/match'; 
+      const params = new URLSearchParams({ 
+        game_mode: gameMode, 
+        start_time: 1704301200, 
+        end_time: 1704560400, 
+        limit: numMatches 
+        
+      }); 
+      try { 
+        const response = await fetch(`${API_ENDPOINT}?${params.toString()}`); 
+        if (!response.ok) { 
+          throw new Error(`Error: ${response.status}`
+          ); 
+          
+        } 
+        const data = await response.json(); return data; 
+        
+      } 
+      catch (error) { 
+        console.error('Failed to fetch matches:', error); 
+        
+      } 
+      
+    } 
+    // Call this function when the page loads 
+    window.onload = () => { fetchMatches(6, 50).then(matches => { 
+      const matchesDiv = document.getElementById('matches'
+      ); 
+      matchesDiv.innerHTML = JSON.stringify(matches, null, 2); 
+    }); 
+    };
 </script>
 
   <script>
