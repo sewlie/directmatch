@@ -23,7 +23,7 @@
 body {
   background-image: url(bg2.png);
   margin: 0;
-  font-family: ElMessiriBold;
+  font-family: Open Sans, sans-serif;
   font-weight: bold;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -46,17 +46,17 @@ overflow: hidden;
   bottom: 50%
 }
 
-#output button p1 {
-font-size: 14px;
-display: flex;
-background: #08492351;
-border-radius: 4px;
-padding: 5px 7px;
-margin: 0 5px;
-font-family: Goldman;
-font-weight: normal;
+#output p1 {
+
+  display: flex;
+  background: #08492351;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 15px 0 0 0;
+  font-family: Goldman;
+  font-weight: normal;
 }
-#output button p2 {
+#output p2 {
 font-size: 18px;
 align-items: center;
 display: flex;
@@ -65,17 +65,16 @@ flex-wrap: wrap;
 font-family: ElMessiri;
 font-weight: normal;
 }
-#output button p3 {
-font-size: 14px;
-display: flex;
-background: #7c0c0c46;
-border-radius: 4px;
-padding: 5px 7px;
-margin: 0 5px;
-font-family: Goldman;
-font-weight: normal;
+#output p3 {
+  display: flex;
+  background: #7c0c0c46;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 15px 0 0 0;
+  font-family: Goldman;
+  font-weight: normal;
 }
-#output h2 {margin: 0;display: flex;flex-direction: row;justify-content: center;font-size: 28px;}
+#output h2 {margin: 0;display: flex;flex-direction: row;justify-content: center;}
 
 .line {
 width: 80%;
@@ -258,24 +257,18 @@ background-color: #00000070;
   font-size: 100%;
 }
 
-/* Style for 'W' */
-.action-button.won {
-color: green;
+.horizontal-line {
+  width: 80%;
+  height: 2px;
+  background-color: white;
+  margin: 10px 0 30px 0;
 }
-
-/* Style for 'L' */
-.action-button.lost {
-color: red;
-}
-
 
 .playercard {display: flex;margin: auto;flex-direction: column;flex-wrap: wrap;align-items: center;background-color: rgb(21 36 55 / 50%);border-radius: 10px;padding: 20px 0px 20px 0px;margin: 10px 0 20px 0;width: 70vw;}
 
-.playercard h2 {
-font-family: Unchained;
-}
+.playercard h2 {/* font-family: Unchained; */padding: 0 10px;}
 
-.playercard p {margin: 10px 0 0px 0;font-size: 18px;}
+.playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
 
 /* Add these styles to your CSS */
 .versus-container {
@@ -296,13 +289,7 @@ justify-content: space-around;
 text-align: center;
 }
 
-.versus-buttons {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-border-radius: 10px;
-}
+.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0 0 20px 0;}
 
 .versus-buttons button {
 margin: 0 10px;
@@ -319,18 +306,29 @@ text-transform: capitalize;
 }
 
 .opponent-container {
-  text-align: center;
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
 }
 
-.versus-container .image-container {
-display: flex;
-justify-content: space-around;
-flex-wrap: wrap;
-margin: 20px 0;
+.god-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
 }
+.god {
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 15px 0 0 0;
+  background-color: rgba(0, 0, 0, 0.264);
+  font-family: Goldman;
+  font-weight: normal;
+}
+
+.versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0;}
 
 /* Style the buttons inside .versus-container */
 

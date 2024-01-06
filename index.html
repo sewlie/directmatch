@@ -172,7 +172,7 @@
                     const containerId = `${matchId}-container`;
                     output.append(`
                       <div id='${containerId}'>
-                        <button style="min-width: 40%; margin: 10px auto;" class='action-button' data-match-id="${matchId}"><p>${username} vs. ${opponentid}</p></button>
+                        <button style="min-width: 40%; margin: 10px auto;" class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
                       </div>
                     `);
                     // Add the click event outside the map function
@@ -185,8 +185,8 @@
                         player_info
                       } = targetMatch;
 
-                      const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>W</p1>' : '<p3>L</p3>';
-                      const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>W</p1>' : '<p3>L</p3>';
+                      const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>';
+                      const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>';
 
                       const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
                       const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
@@ -207,13 +207,21 @@
                           </div>
                           <div class="player-container">
                             <div class="user-container">
-                              <div><h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;"><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${outcome} (${userGod})</h2></div>
+                              <div><h2 style="text-transform: capitalize; padding: 40px 40px 10px 40px;font-size: 18px;border-color: rgb(255 255 255 / 48%);/* color: white; */padding: 11px 20px;border-style: solid;border-radius: 5px;border-width: 2px;"><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a></h2></div>
+                              <div class="god-result" style="text-transform: uppercase;">
+                                <div class="god">${userGod}</div> 
+                                <div class="result">${outcome}</div>
+                              </div>
                               <div class="container"></div>
                               <div class="image-container"></div>
                             </div>
+                            <div class="horizontal-line"></div>
                             <div class="opponent-container">
                               <div class="container">
-                                <h2 style="text-transform: capitalize; padding: 20px 40px 10px 40px; font-size: 18px;"><a style="text-decoration: underline" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a>&nbsp;&nbsp;-&nbsp;&nbsp;${opponentOutcome} (${opponentGod})</h2></a>
+                              <div><h2 style="text-transform: capitalize; padding: 40px 40px 10px 40px;font-size: 18px;border-color: rgb(255 255 255 / 48%);/* color: white; */padding: 11px 20px;border-style: solid;border-radius: 5px;border-width: 2px;"><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a></h2></div>
+                              <div class="god-result" style="text-transform: uppercase;">
+                                <div class="god">${opponentGod}</div> 
+                                <div class="result">${opponentOutcome}</div>
                               </div>
                               <div class="image-container"></div>
                             </div>
