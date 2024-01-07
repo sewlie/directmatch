@@ -19,6 +19,7 @@
   src: url(ElMessiri-Bold.ttf);
 }
 
+@media only screen and (max-width: 701px) {
 
 body {
   background-image: url(bg2.png);
@@ -431,11 +432,179 @@ margin: 0 auto;
 width: 250px;
 }
 
-
+}
 
 
 
 @media only screen and (min-width: 700px) {
+
+body {
+  background-image: url(bg2.png);
+  margin: 0;
+  font-family: Open Sans, sans-serif;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+#background-video {
+display: none;
+overflow: hidden;
+}
+#output {
+  display: flex;
+  flex-direction:
+  column;
+  margin: 0px 0 60px 0px;
+  align-items: center;
+  top: 50%;
+  position: relative;
+  bottom: 50%
+}
+
+#output p1 {
+
+  background: #08492351;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 15px 0 0 0;
+  font-family: Goldman;
+  font-weight: normal;
+}
+#output p2 {
+font-size: 18px;
+align-items: center;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+font-family: ElMessiri;
+font-weight: normal;
+}
+#output p3 {
+
+  background: #7c0c0c46;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 15px 0 0 0;
+  font-family: Goldman;
+  font-weight: normal;
+}
+#output h2 {margin: 0;display: flex;flex-direction: row;justify-content: center;}
+
+.line {
+width: 80%;
+margin: 20px 0;
+display: flex;
+height: 2px;
+background-color: #ffffff;
+}
+
+.profile {
+background-color: rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+padding: 25px;
+}
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0px 30px 0px 30px; */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.topbar2 {display: flex;flex-wrap: wrap;justify-content: center;/* margin-top: 20px; */}
+
+/* Add new styles for the topbar2-text class */
+.topbar2-text {
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.8px;
+  line-height: 18px;
+  text-align: center;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.286);
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin: 20px 0 5px 0;
+}
+
+.topbar h1 {
+font-size: 18px;
+font-family: ElMessiri;
+}
+
+.logo-and-text p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  font-family: 'Goldman';
+  font-weight: 100;
+  letter-spacing: 1px;
+  
+}
+
+.logo-and-text {
+  background-color: #0000009e;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* position: fixed; */
+  width: 100%;
+}
+
+.logo {
+  width: auto;
+  height: 20px;
+  margin: 8px 4px 8px -9px; 
+}
+
+
+
+.dmlogo {
+  width: 250px;
+  margin: 30px 0 0 0;
+}
+
+#container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#matches { 
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  margin-top: 20px; 
+}
+
+.form-control {
+  padding: 20px 0;
+  border: none;
+  border-radius: 5px;
+  width: 400px;
+  /* margin-bottom: 5px; */
+  text-align: center;
+  font-size: 18px;
+}
+
+.flatpickr-mobile {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 50vw;
+  min-width: 50vw;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.topbar-input {
+  display: flex;
+  flex-direction: column;
+}
 
 .input-fields {
   display: flex;
@@ -445,6 +614,237 @@ width: 250px;
   align-content: center;
   justify-content: center;
   font-family: "Open Sans", sans-serif;
-  margin: 0 50px;
+  margin: 0 ;
+  
+}
+
+.button-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+#textbox {
+  padding: 20px 0;
+  margin-bottom: 15px;
+  border-width: 0px;
+  border-radius: 5px;
+  width: 400px;
+  text-align: center;
+  font-size: 18px;
   }
+
+#submit {background-color: #000000b1;color: white;padding: 15px 80px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
+
+#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 83px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
+
+#submit:hover {
+background-color: #00000070;
+}
+
+#reset:hover {
+background-color: #ffffff3e;
+}
+
+.action-button:hover {
+background-color: #00000070;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(136 228 255 / 18%);
+  color: white;
+  padding: 20px 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70vw;
+  /* padding: 20px 40px; */
+  margin: 10px auto;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 18px;
+  font-family: Open Sans, sans-serif;
+  font-weight: 600;
+}
+
+.action-button p {
+  width: 80%;
+  font-family: Open Sans, sans-serif;
+  letter-spacing: 0px;
+  font-size: 100%;
+}
+
+.horizontal-line {
+  width: 80%;
+  height: 2px;
+  background-color: white;
+  margin: 10px 0 30px 0;
+}
+
+.playercard {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: rgb(0 0 0 / 0%);
+  border-color: #00000063;
+  padding: 20px 0px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  margin: 10px 0 10px 0;
+  width: 85vw;
+}
+
+.playercard h2 {/* font-family: Unchained; */padding: 0 10px;}
+
+.playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
+
+/* Add these styles to your CSS */
+.versus-container {
+justify-content: space-around;
+background-color: rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+padding: 25px;
+margin: 20px 0px 20px 0;
+width: 70vw;
+align-items: center;
+}
+
+.player-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+text-align: center;
+}
+
+.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0 0 20px 0;}
+
+.versus-buttons button {
+margin: 0 10px;
+}
+
+.versus-container .container {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.versus-container span {
+text-transform: capitalize;
+}
+
+.opponent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.god-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.god {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.264);
+  font-family: Goldman;
+  font-weight: normal;
+  width: 50%;
+}
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+}
+
+.versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0;}
+
+/* Style the buttons inside .versus-container */
+
+.close-button {
+background-color: #000000b1;
+color: white;
+padding: 11px 40px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: auto;
+}
+
+.versus-container button:hover {
+background-color: #ffffff3e;
+}
+
+/* Add hover effect to card images */
+.card-image:hover {
+transform: scale(1.1);
+}
+
+/* Style the opponent GUDecks link */
+.versus-container a {
+color: #fffdb6;
+text-decoration: none;
+padding: 0;
+}
+
+.versus-container a:hover {
+text-decoration: underline;
+color: #fffedc;
+}
+
+.details-visible .versus-container {
+display: none;
+}
+
+.details-visible .versus-container.details-visible {
+display: flex;
+}
+.card-image {
+  padding: 5px;
+  width: 10vw;
+  height: auto;
+  transition: all 0.1s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.card-image:hover {
+transform: scale(1.1);
+}
+
+
+body p {
+font-family: Open Sans, sans-serif;
+letter-spacing: 1px;
+font-weight: bold;
+color: rgb(255, 255, 255);
+margin: 0;
+font-size: 18px;
+}
+
+.error-message {
+color: rgba(255, 0, 0, 0.764);
+text-align: center;
+font-size: 18px;
+background-color: rgba(0, 0, 0, 0.286);
+padding: 20px;
+border-radius: 10px;
+margin: 0 auto;
+width: 250px;
+}
 }
