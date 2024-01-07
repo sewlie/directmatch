@@ -238,10 +238,10 @@ background-color: #00000070;
 }
 
 .horizontal-line {
-  width: 80%;
+  width: 95%;
   height: 2px;
   background-color: white;
-  margin: 10px 0 30px 0;
+  margin: 30px 0 35px 0;
 }
 
 .playercard {
@@ -271,7 +271,7 @@ background-color: #00000070;
   padding: 10px 0;
   font-family: Goldman;
   font-weight: normal;
-  width: 100px;
+  width: 119px;
 }
 .result p2 {
 font-size: 18px;
@@ -287,7 +287,7 @@ font-weight: normal;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0;
-  width: 100px;
+  width: 119px;
 }
 
 /* Add these styles to your CSS */
@@ -332,9 +332,7 @@ align-items: center;
   
 .versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0 0 20px 0;}
 
-.versus-buttons button {
-margin: 0 10px;
-}
+.versus-buttons button {/* margin: 0 10px; */}
 
 .versus-container .container {
 display: flex;
@@ -369,8 +367,7 @@ text-transform: capitalize;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0px;
-  width: 100px;
-
+  width: 119px;
 }
 .result {
   background: inherit;
@@ -383,20 +380,11 @@ text-transform: capitalize;
   /* padding: 10px 0; */
 }
 
-.versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0;}
+.versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0 0 0;}
 
 /* Style the buttons inside .versus-container */
 
-.close-button {
-background-color: #000000b1;
-color: white;
-padding: 12px 40px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-width: 70vw;
-margin 5px 0;
-}
+.close-button {background-color: #000000b1;color: white;padding: 15px 83px;border: none;border-radius: 5px;cursor: pointer;/* width: 26vw; */margin: 0 0 5px 0;}
 
 .versus-container button:hover {
 background-color: #ffffff3e;
@@ -681,10 +669,10 @@ background-color: #00000070;
 }
 
 .horizontal-line {
-  width: 80%;
+  width: 90%;
   height: 2px;
   background-color: white;
-  margin: 10px 0 30px 0;
+  margin: 20px 0 40px 0;
 }
 
 .user-container, .opponent-container {
@@ -692,6 +680,7 @@ background-color: #00000070;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 8px 0 0 0;
 }
 
 
@@ -704,8 +693,9 @@ background-color: #00000070;
   border-style: solid;
   border-radius: 5px;
   border-width: 2px;
-  width: 250px;
+  width: 409px;
   align-items: center;
+  /* margin: 20px 0; */
 }
 
 .playercard {
@@ -743,9 +733,7 @@ text-align: center;
 
 .versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0 0 20px 0;}
 
-.versus-buttons button {
-margin: 0 10px;
-}
+.versus-buttons button {/* margin: 0 10px; */}
 
 .versus-container .container {
 display: flex;
@@ -821,16 +809,7 @@ font-weight: normal;
 
 /* Style the buttons inside .versus-container */
 
-.close-button {
-background-color: #000000b1;
-color: white;
-padding: 12px 40px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-width: 70vw;
-margin 5px 0;
-}
+.close-button {background-color: #000000b1;color: white;padding: 15px 84px;border: none;border-radius: 5px;cursor: pointer;/* width: 20vw; */margin: 5px 0 0px 0;font-size: 16px;}
 
 .versus-container button:hover {
 background-color: #ffffff3e;
