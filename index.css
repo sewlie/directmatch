@@ -357,7 +357,7 @@ text-transform: capitalize;
 .god-result {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 12px;
   width: 80%;
   justify-content: center;
   align-items: center;
@@ -768,7 +768,7 @@ text-transform: capitalize;
 .god-result {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 12px;
   width: 100%;
   justify-content: center;
   align-items: center;
