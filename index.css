@@ -24,7 +24,7 @@
 body {
   background-image: url(bg2.png);
   margin: 0;
-  font-family: Open Sans, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: bold;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -90,7 +90,7 @@ padding: 25px;
 
 .topbar h1 {
 font-size: 18px;
-font-family: ElMessiri;
+  font-family: "Open Sans", sans-serif;
 }
 
 .logo-and-text p {
@@ -226,13 +226,13 @@ background-color: #00000070;
   justify-content: space-evenly;
   align-items: center;
   font-size: 18px;
-  font-family: Open Sans, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
 
 .action-button p {
   width: 80%;
-  font-family: Open Sans, sans-serif;
+  font-family: "Open Sans", sans-serif;
   letter-spacing: 0px;
   font-size: 100%;
 }
@@ -391,7 +391,7 @@ transform: scale(1.1);
 
 
 body p {
-font-family: Open Sans, sans-serif;
+  font-family: "Open Sans", sans-serif;
 letter-spacing: 1px;
 font-weight: bold;
 color: rgb(255, 255, 255);
@@ -449,7 +449,7 @@ align-items: center;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-font-family: ElMessiri;
+  font-family: "Open Sans", sans-serif;
 font-weight: normal;
 }
 .result p3 {
@@ -502,7 +502,7 @@ padding: 25px;
 
 .topbar h1 {
 font-size: 18px;
-font-family: ElMessiri;
+  font-family: "Open Sans", sans-serif;
 }
 
 .logo-and-text p {
@@ -741,7 +741,11 @@ text-transform: capitalize;
 }
 
 .result p1 {
-  background: #08492351;/* border-radius: 4px; */padding: 10px 0;/* margin: 15px 0 0 0; */font-family: Goldman;font-weight: normal;width: 200px;
+  background: #08492351;
+  padding: 10px 0;
+  font-family: Goldman;
+  font-weight: normal;
+  width: 200px;
   
 }
 .result p2 {
@@ -750,7 +754,7 @@ align-items: center;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-font-family: ElMessiri;
+font-family: Open Sans, sans-serif;
 font-weight: normal;
 }
 .result p3 {
