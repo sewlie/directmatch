@@ -266,6 +266,30 @@ background-color: #00000070;
 
 .playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
 
+.result p1 {
+  background: #08492351;
+  padding: 10px 0;
+  font-family: Goldman;
+  font-weight: normal;
+  width: 100px;
+}
+.result p2 {
+font-size: 18px;
+align-items: center;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+  font-family: "Open Sans", sans-serif;
+font-weight: normal;
+}
+.result p3 {
+  background: #7c0c0c46;
+  font-family: Goldman;
+  font-weight: normal;
+  padding: 10px 0;
+  width: 100px;
+}
+
 /* Add these styles to your CSS */
 .versus-container {
 justify-content: space-around;
@@ -442,23 +466,6 @@ overflow: hidden;
   bottom: 50%
 }
 
-.result p1 {background: #08492351;/* border-radius: 4px; */padding: 10px 0;/* margin: 15px 0 0 0; */font-family: Goldman;font-weight: normal;width: 200px;}
-.result p2 {
-font-size: 18px;
-align-items: center;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-  font-family: "Open Sans", sans-serif;
-font-weight: normal;
-}
-.result p3 {
-  background: #7c0c0c46;
-  font-family: Goldman;
-  font-weight: normal;
-  padding: 10px 0;
-  width: 200px;
-}
 #output h2 {margin: 0;display: flex;flex-direction: row;justify-content: center;}
 
 .line {
@@ -746,7 +753,6 @@ text-transform: capitalize;
   font-family: Goldman;
   font-weight: normal;
   width: 200px;
-  
 }
 .result p2 {
 font-size: 18px;
