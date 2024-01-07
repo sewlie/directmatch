@@ -110,7 +110,7 @@ padding: 25px;
   text-align: center;
   width: 70vw;
   background-color: rgba(0, 0, 0, 0.286);
-  padding: 20px 10px;
+  padding: 20px 15px;
   border-radius: 10px;
   margin: 20px 0 5px 0;
 }
@@ -527,7 +527,7 @@ padding: 25px;
   text-align: center;
   width: 350px;
   background-color: rgba(0, 0, 0, 0.286);
-  padding: 20px 10px;
+  padding: 20px 15px;
   border-radius: 10px;
   margin: 20px 0 5px 0;
 }
@@ -585,7 +585,7 @@ font-family: ElMessiri;
   padding: 20px 0;
   border: none;
   border-radius: 5px;
-  width: 400px;
+  width: 600px;
   /* margin-bottom: 5px; */
   text-align: center;
   font-size: 18px;
@@ -633,7 +633,7 @@ font-family: ElMessiri;
   margin-bottom: 15px;
   border-width: 0px;
   border-radius: 5px;
-  width: 400px;
+  width: 600px;
   text-align: center;
   font-size: 18px;
   }
