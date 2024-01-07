@@ -304,14 +304,12 @@ width: 70vw;
 align-items: center;
 }
 
-.player-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-around;
-text-align: center;
-}
+.player-container {display: flex;flex-direction: column;align-items: center;justify-content: space-around;text-align: center;/* width: 50vw; */}
 
+.user-container {
+  width: 70vw;
+}
+  
 .versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0 0 20px 0;}
 
 .versus-buttons button {
@@ -341,7 +339,7 @@ text-transform: capitalize;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
-  width: 100%;
+  /* width: 100%; */
 }
 .god {
   border-radius: 4px;
@@ -351,6 +349,7 @@ text-transform: capitalize;
   width: 50%;
 }
 .result {
+  border-radius: 4px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -464,15 +463,7 @@ overflow: hidden;
   bottom: 50%
 }
 
-#output p1 {
-
-  background: #08492351;
-  border-radius: 4px;
-  padding: 8px 10px;
-  margin: 15px 0 0 0;
-  font-family: Goldman;
-  font-weight: normal;
-}
+#output p1 {background: #08492351;/* border-radius: 4px; *//* padding: 8px 10px; *//* margin: 15px 0 0 0; */font-family: Goldman;font-weight: normal;}
 #output p2 {
 font-size: 18px;
 align-items: center;
@@ -483,11 +474,7 @@ font-family: ElMessiri;
 font-weight: normal;
 }
 #output p3 {
-
   background: #7c0c0c46;
-  border-radius: 4px;
-  padding: 8px 10px;
-  margin: 15px 0 0 0;
   font-family: Goldman;
   font-weight: normal;
 }
@@ -663,7 +650,7 @@ background-color: #00000070;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 70vw;
+  width: 400px;
   /* padding: 20px 40px; */
   margin: 10px auto;
   justify-content: space-evenly;
@@ -702,7 +689,7 @@ background-color: #00000070;
   border-radius: 5px;
   border-width: 2px;
   margin: 10px 0 10px 0;
-  width: 85vw;
+  width: 500px;
 }
 
 .playercard h2 {/* font-family: Unchained; */padding: 0 10px;}
@@ -755,22 +742,28 @@ text-transform: capitalize;
 .god-result {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 5px 0;
 }
 .god {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.264);
   font-family: Goldman;
   font-weight: normal;
-  width: 50%;
+  width: 47%;
+  padding: 10px 0;
 }
 .result {
   display: flex;
   flex-direction: row;
+  width: 47%;
+  align-items: center;
   justify-content: center;
-  width: 50%;
+  border-radius: 4px;
+  padding: 10px 0;
 }
 
 .versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0;}
