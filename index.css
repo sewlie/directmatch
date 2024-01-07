@@ -103,7 +103,7 @@ font-size: 18px;
 }
 
 .logo-and-text {
-  background-color: #0000009e;
+  background-color: #000000b1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -225,7 +225,7 @@ background-color: #00000070;
   margin: 10px auto 15px;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
@@ -271,7 +271,7 @@ background-color: #00000070;
   padding: 10px 0;
   font-family: Goldman;
   font-weight: normal;
-  width: 145px;
+  width: 120px;
 }
 .result p2 {
 font-size: 18px;
@@ -287,7 +287,7 @@ font-weight: normal;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0;
-  width: 145px;
+  width: 120px;
 }
 
 /* Add these styles to your CSS */
@@ -298,6 +298,7 @@ border-radius: 10px;
 padding: 25px;
 margin: 20px 0px 20px 0;
 width: 70vw;
+min-width: 280px;
 align-items: center;
 }
 
@@ -338,7 +339,7 @@ text-transform: capitalize;
   display: flex;
   flex-direction: row;
   gap: 8px;
-  width: 100%;
+  width: 80%;
   justify-content: center;
   align-items: center;
   margin: 10px 0 5px 0;
@@ -348,8 +349,7 @@ text-transform: capitalize;
   background-color: rgba(0, 0, 0, 0.264);
   font-family: Goldman;
   font-weight: normal;
-  width: 145px;
-  padding: 10px 0;
+  padding: 10px 0px;
 }
 .result {
   background: inherit;
