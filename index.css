@@ -463,8 +463,8 @@ overflow: hidden;
   bottom: 50%
 }
 
-#output p1 {background: #08492351;/* border-radius: 4px; *//* padding: 8px 10px; *//* margin: 15px 0 0 0; */font-family: Goldman;font-weight: normal;}
-#output p2 {
+.result p1 {background: #08492351;/* border-radius: 4px; */padding: 10px 0;/* margin: 15px 0 0 0; */font-family: Goldman;font-weight: normal;width: 200px;}
+.result p2 {
 font-size: 18px;
 align-items: center;
 display: flex;
@@ -473,10 +473,12 @@ flex-wrap: wrap;
 font-family: ElMessiri;
 font-weight: normal;
 }
-#output p3 {
+.result p3 {
   background: #7c0c0c46;
   font-family: Goldman;
   font-weight: normal;
+  padding: 10px 0;
+  width: 200px;
 }
 #output h2 {margin: 0;display: flex;flex-direction: row;justify-content: center;}
 
@@ -697,15 +699,7 @@ background-color: #00000070;
 .playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
 
 /* Add these styles to your CSS */
-.versus-container {
-justify-content: space-around;
-background-color: rgba(255, 255, 255, 0.2);
-border-radius: 10px;
-padding: 25px;
-margin: 20px 0px 20px 0;
-width: 70vw;
-align-items: center;
-}
+.versus-container {justify-content: space-around;background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 20px 0px 20px 0;width: 650px;align-items: center;}
 
 .player-container {
 display: flex;
@@ -753,17 +747,18 @@ text-transform: capitalize;
   background-color: rgba(0, 0, 0, 0.264);
   font-family: Goldman;
   font-weight: normal;
-  width: 47%;
+  width: 200px;
   padding: 10px 0;
 }
 .result {
+  background: inherit;
   display: flex;
   flex-direction: row;
-  width: 47%;
+  /* width: 47%; */
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  padding: 10px 0;
+  /* padding: 10px 0; */
 }
 
 .versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0;}
