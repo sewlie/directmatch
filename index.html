@@ -172,8 +172,8 @@
                     const matchId = x.game_id; // Save the match ID
                     const containerId = `${matchId}-container`;
                     output.append(`
-                      <div id='${containerId}'>
-                        <button style="min-width: 40%; margin: 10px auto;" class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
+                      <div class="matches-container" id='${containerId}'>
+                        <button class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
                       </div>
                     `);
                     // Add the click event outside the map function
