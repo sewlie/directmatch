@@ -139,7 +139,6 @@
             const obj = JSON.parse(data);
             wonRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
             matches.push(wonRecords);
-            matches.push(wonRecords);
             $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_lost=${playerid}`, (data) => {
               const obj = JSON.parse(data);
               lostRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
