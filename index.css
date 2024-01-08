@@ -474,12 +474,6 @@ width: 250px;
 
 @media only screen and (min-width: 700px) {
   
-  .god.magic {background-color: #0b3b7d61;} 
-.god.nature { background-color: #0b3b7d61; } 
-.god.war { background-color: #0b3b7d61; } 
-.god.death {background-color: #05774f61;} 
-.god.light { background-color: #0b3b7d61; } 
-.god.deception { background-color: #0b3b7d61; }
 
 body {
   background-image: url(bg2.png);
