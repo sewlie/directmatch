@@ -156,14 +156,12 @@
                 resultDiv.append(`<h2>${username}</h2>`);
                 resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
                 output.append(resultDiv);
-
                 $('.topbar').hide();
                 $('.topbar2').hide();
                 $('#submit').hide();
                 $('.input-fields').hide();
                 $('.topbar2').css('margin-top','0px');
                 $('#reset').css('margin','10px 0 0px 0');
-
                 filtered.map((x) => {
                   const { player_won, player_lost } = x;
                   const participants = [player_won, player_lost];
@@ -185,8 +183,7 @@
                     const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
                     const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
                     const userGod = userInfo.god;
-                    const godElement = $(`#${id}-container`).find('.god');
-                    godElement.addClass(userGod.toLowerCase());
+                    
                     const { cards: userCards } = userInfo;
                     const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
 
@@ -252,6 +249,9 @@
                       };
                       showCards(userCards, '.user-container');
                       showCards(opponentCards, '.opponent-container');
+                      const godElement = $(`#${id}-container`).find('.god');
+                      console.log(godElement);
+                      godElement.addClass(userGod.toLowerCase());
                     });
                     $(`#${containerId}`).on('click', '.close-button', function (event) {
                       console.log("Close button clicked!");

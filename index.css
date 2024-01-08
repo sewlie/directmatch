@@ -19,12 +19,14 @@
   src: url(ElMessiri-Bold.ttf);
 }
 
-.god.magic { background-color: #000000; } 
-.god.nature { background-color: #someColorForNature; } 
-.god.war { background-color: #someColorForWar; } 
-.god.death { background-color: #someColorForDeath; } 
-.god.light { background-color: #someColorForLight; } 
-.god.deception { background-color: #someColorForDeception; }
+.god.magic { 
+  background-color: #000000; 
+} 
+.god.nature { background-color: #000000; }  
+.god.war { background-color: #000000; }  
+.god.death { background-color: #000000; }  
+.god.light { background-color: #000000; }  
+.god.deception { background-color: #000000; } 
 
 @media only screen and (max-width: 699px) {
 
