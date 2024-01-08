@@ -25,11 +25,11 @@
 .god.magic {
   background-color: #17469b85;
 } 
-.god.nature { background-color: #1bb61b7e; }  
-.god.war { background-color: #8b3a1d95; }  
+.god.nature {background-color: #0195057a;}  
+.god.war { background-color: ##bd000066; }  
 .god.death {background-color: #11776975;}  
-.god.light { background-color: #dbd55f9a; }  
-.god.deception { background-color: #54185094; } 
+.god.light {background-color: #b9b4577d;}  
+.god.deception { background-color: #7e2d7994; } 
 
 @media only screen and (max-width: 699px) {
 
@@ -50,13 +50,12 @@ overflow: hidden;
 }
 #output {
   display: flex;
-  flex-direction:
-  column;
   margin: 0px 0 60px 0px;
   align-items: center;
   top: 50%;
   position: relative;
-  bottom: 50%
+  bottom: 50%;
+  flex-direction: column;
 }
 
 #output h2 {margin: 0;display: flex;flex-direction: column;justify-content: center;/* font-size: 28px; */}
@@ -110,7 +109,7 @@ font-size: 18px;
 }
 
 .logo-and-text p {
-  margin: 4px 0 5px;
+  margin: 7px 0 8px;
   font-size: 14px;
   font-family: 'Goldman';
   font-weight: 100;
@@ -136,8 +135,8 @@ font-size: 18px;
 
 
 .dmlogo {
-  width: 300px;
-  margin: 30px 0 0 0;
+  width: 280px;
+  margin: 40px 0 0 0;
 }
 
 #container {
@@ -220,7 +219,7 @@ font-size: 18px;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 15px 80px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 15px 45px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
 
 #reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 47px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
 
@@ -238,7 +237,6 @@ background-color: #00000070;
 
 .action-button {
   display: flex;
-  flex-direction: column;
   background-color: rgb(136 228 255 / 18%);
   color: white;
   padding: 20px 0px;
@@ -251,10 +249,9 @@ background-color: #00000070;
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .action-button p {
@@ -267,7 +264,7 @@ background-color: #00000070;
 .horizontal-line {
   width: 95%;
   height: 2px;
-  background-color: white;
+  background-color: #ffffffd4;
   margin: 30px 0 20px 0;
 }
 
@@ -292,7 +289,7 @@ background-color: #00000070;
 .playercard p {/* margin: 10px 0 0px 0; */padding: 6px 0 0 0;font-size: 20px;}
 
 .result p1 {
-  background: #08492351;
+  background: #0195057a;
   padding: 10px 0;
   font-family: Goldman;
   font-weight: normal;
@@ -309,7 +306,7 @@ flex-wrap: wrap;
 font-weight: normal;
 }
 .result p3 {
-  background: #7c0c0c46;
+  background: #bd000066;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0;
@@ -318,16 +315,7 @@ font-weight: normal;
 }
 
 /* Add these styles to your CSS */
-.versus-container {
-justify-content: space-around;
-background-color: rgba(255, 255, 255, 0.2);
-border-radius: 10px;
-padding: 25px;
-margin: 20px 0px 20px 0;
-width: 70vw;
-min-width: 280px;
-align-items: center;
-}
+.versus-container {/* justify-content: space-around; */background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 20px 0px 20px 0;width: 70vw;min-width: 280px;/* align-items: center; */}
 
 .player-container {
   display: flex;
@@ -344,9 +332,9 @@ align-items: center;
   align-items: center;
 }
 
-.player-container h2 {text-transform: capitalize;/* font-size: 36px; */background-color: rgb(0 0 0 / 0%);/* color: #ffffff; */padding: 11px 0px 0px;border-style: none;border-radius: 5px;border-width: 2px;/* width: 250px; */align-items: center;}
+.player-container h2 {text-transform: capitalize;/* font-size: 36px; */background-color: rgb(0 0 0 / 0%);/* color: #ffffff; *//* padding: 11px 0px 0px; */border-style: none;border-radius: 5px;border-width: 2px;/* width: 250px; */align-items: center;}
   
-.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0px 0 11px 0;}
+.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;/* margin: 0px 0 11px 0; */}
 
 .versus-buttons button {/* margin: 0 10px; */}
 
@@ -400,7 +388,18 @@ text-transform: capitalize;
 
 /* Style the buttons inside .versus-container */
 
-.close-button {background-color: #000000b1;color: white;padding: 15px 47px;border: none;border-radius: 5px;cursor: pointer;/* width: 26vw; */margin: 0 0 0px 0;font-size: 17px;}
+.close-button {
+  background-color: #00000000;
+  padding: 15px 86px;
+  border: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+  font-size: 17px;
+  border-color: #00000073;
+  color: #000000bd;
+}
 
 .versus-container button:hover {
 background-color: #ffffff3e;
@@ -578,8 +577,8 @@ font-size: 18px;
 
 
 .dmlogo {
-  width: 300px;
-  margin: 30px 0 0 0;
+  width: 450px;
+  margin: 63px 0 20px;
 }
 
 #container {
@@ -677,7 +676,7 @@ background-color: #00000070;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 400px;
+  width: 450px;
   margin: 10px auto 15px;
   justify-content: space-evenly;
   align-items: center;
@@ -696,7 +695,7 @@ background-color: #00000070;
 .horizontal-line {
   width: 90%;
   height: 2px;
-  background-color: white;
+  background-color: #ffffffd4;
   margin: 20px 0 20px 0;
 }
 
@@ -705,7 +704,7 @@ background-color: #00000070;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 8px 0 0 0;
+  /* margin: 8px 0 0 0; */
 }
 
 
@@ -713,7 +712,7 @@ background-color: #00000070;
   text-transform: capitalize;
   font-size: 22px;
   background-color: rgb(0 0 0 / 0%);
-  color: #fffff;
+  color: #ffffff;
   padding: 11px 0px;
   border-style: none;
   border-radius: 5px;
@@ -754,7 +753,7 @@ justify-content: space-around;
 text-align: center;
 }
 
-.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;margin: 0 0 10px 0;}
+.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;/* margin: 0 0 10px 0; */}
 
 .versus-buttons button {/* margin: 0 10px; */}
 
@@ -805,7 +804,7 @@ text-transform: capitalize;
 }
 
 .result p1 {
-  background: #08492351;
+  background: #0195057a;
   padding: 10px 0;
   font-family: Goldman;
   font-weight: normal;
@@ -822,7 +821,7 @@ font-family: Open Sans, sans-serif;
 font-weight: normal;
 }
 .result p3 {
-  background: #7c0c0c46;
+  background: #bd000066;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0;
@@ -834,7 +833,18 @@ font-weight: normal;
 
 /* Style the buttons inside .versus-container */
 
-.close-button {background-color: #000000b1;color: white;padding: 15px 84px;border: none;border-radius: 5px;cursor: pointer;/* width: 20vw; */margin: 5px 0 0px 0;font-size: 17px;}
+.close-button {
+  background-color: #00000000;
+  padding: 15px 181px;
+  border: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  cursor: pointer;
+  margin: 5px 0 10px 0;
+  font-size: 17px;
+  border-color: #00000073;
+  color: #000000bd;
+}
 
 .versus-container button:hover {
 background-color: #ffffff3e;
@@ -846,7 +856,7 @@ transform: scale(1.1);
 }
 
 /* Style the opponent GUDecks link */
-.versus-container a {color: #fff238;text-decoration: none;padding: 0;/* font-size: 32px; */border-radius: 4px;background-color: rgba(0, 0, 0, 0.264);font-family: Goldman;font-weight: normal;width: 410px;padding: 10px 0 12px;}
+.versus-container a {color: #fff238;text-decoration: none;padding: 0;/* font-size: 32px; */border-radius: 4px;background-color: #00000063;font-family: Goldman;font-weight: normal;width: 410px;padding: 10px 0 12px;}
 
 .versus-container a:hover {
 text-decoration: underline;

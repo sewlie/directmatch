@@ -204,6 +204,7 @@
                             <div class="image-container"></div>
                           </div>
                           <div class="horizontal-line"></div>
+                          <button class="close-button" id="${id}-${playerid}-close">Close</button>
                           <div class="opponent-container">
                             <div class="container">
                             <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a></h2></div>
@@ -324,18 +325,8 @@
         alert("An error occurred. Please check the console for details.");
       }
     }
-
-    document.addEventListener("DOMContentLoaded", function () { initializeFlatpickr(); }); }); 
-    async function fetchMatches(gameMode, startTime, endTime, maxMatches) { const API_ENDPOINT = 'https://api.godsunchained.com/v0/match'; let currentPage = 1; let fetchedMatches = []; while (fetchedMatches.length < maxMatches) { const params = new URLSearchParams({ game_mode: gameMode, start_time: startTime, end_time: endTime, page: currentPage }); 
+  });
     
-    console.log("Constructed URL:", `${API_ENDPOINT}?${params.toString()}`); 
-
-    try { const response = await fetch(`${API_ENDPOINT}?${params.toString()}`); if (!response.ok) { throw new Error(`Error: ${response.status}`); } const data = await response.json(); if (data.records && data.records.length > 0) { fetchedMatches = fetchedMatches.concat(data.records); currentPage++; } else { break; 
-    
-    } } catch (error) { console.error('Failed to fetch matches:', error); break; 
-     } } 
-     return fetchedMatches.slice(0, maxMatches); } 
-     window.onload = () => { fetchMatches(6, 1701882000, 1702054800, 50).then(matches => { const matchesDiv = document.getElementById('matches'); matchesDiv.innerHTML = JSON.stringify(matches, null, 2); }); };
 </script>
 
   <script>
