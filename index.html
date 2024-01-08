@@ -139,7 +139,6 @@
             const obj = JSON.parse(data);
             wonRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
             matches.push(wonRecords);
-            matches.push(wonRecords);
             $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_lost=${playerid}`, (data) => {
               const obj = JSON.parse(data);
               lostRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
@@ -174,12 +173,18 @@
                     const matchId = x.game_id; // Save the match ID
                     const containerId = `${matchId}-container`;
                     output.append(`
-                      <div class="matches-container" id='${containerId}'>
+                      <div id='${containerId}'>
                         <button class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
                       </div>
+                    
                     `);
                     // Add the click event outside the map function
-                    $(`#${containerId}`).on('click', '.action-button', async (e) => { const id = $(e.target).data('match-id'); const targetMatchArr = filtered.filter(x => x.game_id === id); const targetMatch = targetMatchArr[0]; const { player_won, player_info } = targetMatch; const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const userInfo = player_info.find((x) => x.user_id === parseInt(playerid)); const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid)); const { cards: userCards, god: userGod } = userInfo; const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo; console.log(id);
+                    $(`#${containerId}`).on('click', '.action-button', async (e) => { const id = $(e.target).data('match-id'); const targetMatchArr = filtered.filter(x => x.game_id === id); const targetMatch = targetMatchArr[0]; const { player_won, player_info } = targetMatch; const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const userInfo = player_info.find((x) => x.user_id === parseInt(playerid)); 
+                    const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid)); 
+                    const userGod = userInfo.god; 
+                    const godElement = $(`#${id}-container`).find('.god'); godElement.addClass(userGod.toLowerCase()); 
+                    const { cards: userCards } = userInfo; 
+                    const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
 
                       
                       const container = `
