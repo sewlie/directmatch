@@ -143,6 +143,11 @@ font-size: 18px;
 
 .matches-container {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-control {
@@ -235,6 +240,9 @@ background-color: #00000070;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .action-button p {
