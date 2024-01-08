@@ -179,18 +179,8 @@
                     
                     `);
                     // Add the click event outside the map function
-                    $(`#${containerId}`).on('click', '.action-button', async (e) => { const id = $(e.target).data('match-id'); const targetMatchArr = filtered.filter(x => x.game_id === id); const targetMatch = targetMatchArr[0]; const { player_won, player_info } = targetMatch; const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; 
-                    const userInfo = player_info.find((x) => x.user_id === parseInt(playerid)); 
-                    const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid)); 
-                    const userGod = userInfo.god; 
-                    const opponentGod = opponentInfo.god; 
-                    const userGodElement = $(`#${id}-container`).find('.user-container .god'); 
-                    const opponentGodElement = $(`#${id}-container`).find('.opponent-container .god');
-                    userGodElement.addClass(userGod.toLowerCase()); 
-                    opponentGodElement.addClass(opponentGod.toLowerCase()); 
-                    const { cards: userCards } = userInfo; 
-                    const { cards: opponentCards, user_id: opponentPlayerid } = opponentInfo; 
-
+                    $(`#${containerId}`).on('click', '.action-button', async (e) => { const id = $(e.target).data('match-id'); const targetMatchArr = filtered.filter(x => x.game_id === id); const targetMatch = targetMatchArr[0]; const { player_won, player_info } = targetMatch; const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const userInfo = player_info.find((x) => x.user_id === parseInt(playerid)); const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid)); const userGod = userInfo.god; const godElement = $(`#${id}-container`).find('.god'); godElement.addClass(userGod.toLowerCase()); const { cards: userCards, god: userGod } = userInfo; const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
+                    
                       const container = `
                         <div id="${id}" class="versus-container">
                           <div class="versus-buttons">
