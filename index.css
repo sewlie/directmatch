@@ -284,7 +284,7 @@ background-color: #00000070;
   padding: 10px 0;
   font-family: Goldman;
   font-weight: normal;
-  width: 100px;
+  width: 105px;
   border-radius: 4px;
 }
 .result p2 {
@@ -301,7 +301,7 @@ font-weight: normal;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0;
-  width: 100px;
+  width: 105px;
   border-radius: 4px;
 }
 
@@ -381,8 +381,8 @@ text-transform: capitalize;
   background-color: rgba(0, 0, 0, 0.264);
   font-family: Goldman;
   font-weight: normal;
-  padding: 10px 15px;
-  width: 119px;
+  padding: 10px 0px;
+  width: 105px;
 }
 .result {
   background: inherit;
