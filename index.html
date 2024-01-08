@@ -183,9 +183,10 @@
                     const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
                     const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
                     const userGod = userInfo.god;
+                    const opponentGod = opponentInfo.god;
                     
                     const { cards: userCards } = userInfo;
-                    const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
+                    const { cards: opponentCards, user_id: opponentPlayerid } = opponentInfo;
 
                     const container = `
                       <div id="${id}" class="versus-container">
@@ -250,8 +251,10 @@
                       showCards(userCards, '.user-container');
                       showCards(opponentCards, '.opponent-container');
                       const godElement = $(`#${id}-container`).find('.god');
+                      const opponentGodElement = $(`#${id}-container`).find('.opponent-container .god');
                       console.log(godElement);
                       godElement.addClass(userGod.toLowerCase());
+                      opponentGodElement.addClass(opponentGod.toLowerCase());
                     });
                     $(`#${containerId}`).on('click', '.close-button', function (event) {
                       console.log("Close button clicked!");
