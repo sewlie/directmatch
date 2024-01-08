@@ -98,12 +98,11 @@ font-size: 18px;
 }
 
 .logo-and-text p {
-  margin: 10px 0 0 0;
+  margin: 4px 0 5px;
   font-size: 14px;
   font-family: 'Goldman';
   font-weight: 100;
   letter-spacing: 1px;
-  
 }
 
 .logo-and-text {
@@ -118,7 +117,8 @@ font-size: 18px;
 .logo {
   width: auto;
   height: 20px;
-  margin: 8px 4px 8px -9px; 
+  margin: 8px 4px 8px -9px;
+  display: none;
 }
 
 
@@ -400,7 +400,7 @@ transform: scale(1.1);
 }
 
 /* Style the opponent GUDecks link */
-.versus-container a {color: #252525;text-decoration: none;padding: 0;}
+.versus-container a {color: #fff238;text-decoration: none;padding: 0;}
 
 .versus-container a:hover {
 text-decoration: underline;
@@ -540,12 +540,11 @@ font-size: 18px;
 }
 
 .logo-and-text p {
-  margin: 10px 0 0 0;
-  font-size: 14px;
+  margin: 6px 0 7px;
+  font-size: 16px;
   font-family: 'Goldman';
   font-weight: 100;
   letter-spacing: 1px;
-  
 }
 
 .logo-and-text {
@@ -558,9 +557,10 @@ font-size: 18px;
 }
 
 .logo {
+  display: none;
   width: auto;
   height: 20px;
-  margin: 8px 4px 8px -9px; 
+  margin: 8px 4px 8px -9px;
 }
 
 
@@ -834,11 +834,7 @@ transform: scale(1.1);
 }
 
 /* Style the opponent GUDecks link */
-.versus-container a {
-color: #ffffff;
-text-decoration: none;
-padding: 0;
-}
+.versus-container a {color: #fff238;text-decoration: none;padding: 0;font-size: 32px;}
 
 .versus-container a:hover {
 text-decoration: underline;
