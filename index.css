@@ -19,6 +19,15 @@
   src: url(ElMessiri-Bold.ttf);
 }
 
+
+.god.magic { background-color: #fff238; }
+.god.nature { background-color: #fff238; }
+.god.war { background-color: #fff238; }
+.god.death { background-color: #fff238; }
+.god.light { background-color: #fff238; }
+.god.deception { background-color: #fff238; }
+
+
 @media only screen and (max-width: 699px) {
 
 body {
