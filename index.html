@@ -81,16 +81,19 @@
     const button = $('#submit');
     const timeStamp = $('#timestamp');
     const output = $('#output');
+
     function toggleSubmitButton() {
       const playerId = input.val();
       const dateSelected = timeStamp.val();
       button.prop('disabled', !(playerId && dateSelected));
     }
+
     function highlightInputBox() {
       const originalColor = input.css('background-color');
       input.css('background-color', 'white');
       input.animate({ 'background-color': originalColor }, 2000);
     }
+
     function displayErrorMessage(message) {
       output.empty();
       const errorMessage = $(`<p class="error-message" style="color: red;">${message}</p>`);
@@ -105,11 +108,14 @@
         });
       }, 4000);
     }
+
     input.on('input', function () {
       toggleSubmitButton();
       input.css('background-color', 'white');
     });
+
     timeStamp.on('change', toggleSubmitButton);
+
     $('#submit').click(function () {
       try {
         const playerid = input.val();
@@ -151,8 +157,6 @@
                 resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
                 output.append(resultDiv);
 
-                // Shrink the gu-logo down
-
                 $('.topbar').hide();
                 $('.topbar2').hide();
                 $('#submit').hide();
@@ -161,57 +165,59 @@
                 $('#reset').css('margin','10px 0 0px 0');
 
                 filtered.map((x) => {
-                    const {
-                      player_won,
-                      player_lost
-                    } = x;
-
-
-                    const participants = [player_won, player_lost];
-                    console.log(participants);
-                    const opponentid = participants.find((x) => x !== parseInt(playerid));
-                    const matchId = x.game_id; // Save the match ID
-                    const containerId = `${matchId}-container`;
-                    output.append(`
-                      <div class="matches-container" id='${containerId}'>
-                        <button class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
-                      </div>
-                    `);
-                    // Add the click event outside the map function
-                    $(`#${containerId}`).on('click', '.action-button', async (e) => { const id = $(e.target).data('match-id'); const targetMatchArr = filtered.filter(x => x.game_id === id); const targetMatch = targetMatchArr[0]; const { player_won, player_info } = targetMatch; const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>'; const userInfo = player_info.find((x) => x.user_id === parseInt(playerid)); const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid)); const userGod = userInfo.god; 
-                    const godElement = $(`#${id}-container`).find('.god'); godElement.addClass(userGod.toLowerCase()); 
-                    const { cards: userCards
-                    } = userInfo; 
+                  const { player_won, player_lost } = x;
+                  const participants = [player_won, player_lost];
+                  const opponentid = participants.find((x) => x !== parseInt(playerid));
+                  const matchId = x.game_id;
+                  const containerId = `${matchId}-container`;
+                  output.append(`
+                    <div id='${containerId}'>
+                      <button class='action-button' data-match-id="${matchId}">${username} vs. ${opponentid}</button>
+                    </div>
+                  `);
+                  $(`#${containerId}`).on('click', '.action-button', async (e) => {
+                    const id = $(e.target).data('match-id');
+                    const targetMatchArr = filtered.filter(x => x.game_id === id);
+                    const targetMatch = targetMatchArr[0];
+                    const { player_won, player_info } = targetMatch;
+                    const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>';
+                    const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>';
+                    const userInfo = player_info.find((x) => x.user_id === parseInt(playerid));
+                    const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
+                    const userGod = userInfo.god;
+                    const godElement = $(`#${id}-container`).find('.god');
+                    godElement.addClass(userGod.toLowerCase());
+                    const { cards: userCards } = userInfo;
                     const { cards: opponentCards, user_id: opponentPlayerid, god: opponentGod } = opponentInfo;
-                      
-                      const container = `
-                        <div id="${id}" class="versus-container">
-                          <div class="versus-buttons">
-                            <button class="close-button" id="${id}-${playerid}-close">Close</button>
+
+                    const container = `
+                      <div id="${id}" class="versus-container">
+                        <div class="versus-buttons">
+                          <button class="close-button" id="${id}-${playerid}-close">Close</button>
+                        </div>
+                        <div class="player-container">
+                          <div class="user-container">
+                            <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a></h2></div>
+                            <div class="god-result" style="text-transform: uppercase;">
+                              <div class="god">${userGod}</div> 
+                              <div class="result">${outcome}</div>
+                            </div>
+                            <div class="container"></div>
+                            <div class="image-container"></div>
                           </div>
-                          <div class="player-container">
-                            <div class="user-container">
-                              <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${playerid}>${username}</a></h2></div>
-                              <div class="god-result" style="text-transform: uppercase;">
-                                <div class="god">${userGod}</div> 
-                                <div class="result">${outcome}</div>
-                              </div>
-                              <div class="container"></div>
-                              <div class="image-container"></div>
+                          <div class="horizontal-line"></div>
+                          <div class="opponent-container">
+                            <div class="container">
+                            <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a></h2></div>
+                            <div class="god-result" style="text-transform: uppercase;">
+                              <div class="god">${opponentGod}</div> 
+                              <div class="result">${opponentOutcome}</div>
                             </div>
-                            <div class="horizontal-line"></div>
-                            <div class="opponent-container">
-                              <div class="container">
-                              <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a></h2></div>
-                              <div class="god-result" style="text-transform: uppercase;">
-                                <div class="god">${opponentGod}</div> 
-                                <div class="result">${opponentOutcome}</div>
-                              </div>
-                              <div class="image-container"></div>
-                            </div>
+                            <div class="image-container"></div>
                           </div>
                         </div>
-                      `;
+                      </div>
+                    `;
                       if ($(`#${id}-container`).children().length === 1) {
                         $(`#${id}-container`).append(container);
                         // Show the "Close" button after clicking "See Match Details"
