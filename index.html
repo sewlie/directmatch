@@ -117,18 +117,21 @@
     timeStamp.on('change', toggleSubmitButton);
 
     $('#submit').click(function () {
+      $('#loading').show(); // Show the loading sign
       try {
         const playerid = input.val();
         const time = timeStamp.val();
         if (!playerid.trim()) {
           displayErrorMessage("Please input your Gods Unchained Player ID");
           highlightInputBox();
+          $('#loading').hide(); // Hide loading sign
           return;
         }
         const invalidInput = /\D/.test(playerid);
         if (invalidInput) {
           displayErrorMessage("Your Player ID must only contain numbers");
           highlightInputBox();
+          $('#loading').hide(); // Hide loading sign
           return;
         }
         const myCards = [];
@@ -136,32 +139,38 @@
         let wonRecords;
         let lostRecords;
         let username;
+
         $.get(`https://api.godsunchained.com/v0/properties?user_id=${playerid}`, (d) => {
           const dat = JSON.parse(d);
           const recs = dat.records;
           const user = recs[0];
           username = user.username;
+
           $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_won=${playerid}`, (data) => {
             const obj = JSON.parse(data);
             wonRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
             matches.push(wonRecords);
+
             $.get(`https://api.godsunchained.com/v0/match?start_time=${time}-&player_lost=${playerid}`, (data) => {
               const obj = JSON.parse(data);
               lostRecords = obj.records && obj.records.filter((x) => x.game_mode === 6) || null;
               matches.push(lostRecords);
               const flattened = matches.flat();
               const filtered = flattened.filter((x) => x !== null);
+
               if (output.children().length === 0) {
                 const resultDiv = $('<div class="playercard">');
                 resultDiv.append(`<h2>${username}</h2>`);
                 resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
                 output.append(resultDiv);
+
                 $('.topbar').hide();
                 $('.topbar2').hide();
                 $('#submit').hide();
                 $('.input-fields').hide();
                 $('.topbar2').css('margin-top','0px');
                 $('#reset').css('margin','10px 0 0px 0');
+
                 filtered.map((x) => {
                   const { player_won, player_lost } = x;
                   const participants = [player_won, player_lost];
@@ -184,7 +193,7 @@
                     const opponentInfo = player_info.find((x) => x.user_id !== parseInt(playerid));
                     const userGod = userInfo.god;
                     const opponentGod = opponentInfo.god;
-                    
+
                     const { cards: userCards } = userInfo;
                     const { cards: opponentCards, user_id: opponentPlayerid } = opponentInfo;
 
@@ -207,80 +216,90 @@
                           <button class="close-button" id="${id}-${playerid}-close">Close</button>
                           <div class="opponent-container">
                             <div class="container">
-                            <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a></h2></div>
-                            <div class="god-result" style="text-transform: uppercase;">
-                              <div class="god">${opponentGod}</div> 
-                              <div class="result">${opponentOutcome}</div>
+                              <div><h2><a style="text-decoration: underline;" target=_blank href=https://gudecks.com/meta/player-stats?userId=${opponentPlayerid}>${opponentPlayerid}</a></h2></div>
+                              <div class="god-result" style="text-transform: uppercase;">
+                                <div class="god">${opponentGod}</div> 
+                                <div class="result">${opponentOutcome}</div>
+                              </div>
+                              <div class="image-container"></div>
                             </div>
-                            <div class="image-container"></div>
                           </div>
                         </div>
                       </div>
                     `;
-                      if ($(`#${id}-container`).children().length === 1) {
-                        $(`#${id}-container`).append(container);
-                        // Show the "Close" button after clicking "See Match Details"
-                        $(`#${id}-${playerid}-close`).show();
-                      }
-                      console.log($(`#${id}-container`).children());
-                      const showCards = (cards, target) => {
-                        const myCards = [];
-                        $.get("https://api.godsunchained.com/v0/proto?perPage=3000", function (data) {
-                          const cardData = JSON.parse(data);
-                          const allCards = cardData.records;
-                          cards.map((x) => {
-                            const card = allCards.filter((y) => y.id === parseInt(x));
-                            const targetcard = card[0];
-                            const cardId = targetcard.id;
-                            const result = {
-                              ...targetcard,
-                              image: `https://card.godsunchained.com/?id=${cardId}&q=4`
-                            };
-                            myCards.push(result);
-                          });
-                          const sorted = myCards.sort((a, b) => {
-                            return a.mana - b.mana;
-                          });
-                          console.log(sorted);
-                          sorted.map((x) => {
-                            if ($(`#${id}-container`).find(target).find(".image-container").children().length <= sorted.length - 1) {
-                              $(`#${id}-container`).find(target).find(".image-container").append(`<img class="card-image" src=${x.image}/>`);
-                            }
-                          });
+                    if ($(`#${id}-container`).children().length === 1) {
+                      $(`#${id}-container`).append(container);
+                      // Show the "Close" button after clicking "See Match Details"
+                      $(`#${id}-${playerid}-close`).show();
+                    }
+                    console.log($(`#${id}-container`).children());
+                    const showCards = (cards, target) => {
+                      const myCards = [];
+                      $.get("https://api.godsunchained.com/v0/proto?perPage=3000", function (data) {
+                        const cardData = JSON.parse(data);
+                        const allCards = cardData.records;
+                        cards.map((x) => {
+                          const card = allCards.filter((y) => y.id === parseInt(x));
+                          const targetcard = card[0];
+                          const cardId = targetcard.id;
+                          const result = {
+                            ...targetcard,
+                            image: `https://card.godsunchained.com/?id=${cardId}&q=4`
+                          };
+                          myCards.push(result);
                         });
-                      };
-                      showCards(userCards, '.user-container');
-                      showCards(opponentCards, '.opponent-container');
-                      const godElement = $(`#${id}-container`).find('.god');
-                      const opponentGodElement = $(`#${id}-container`).find('.opponent-container .god');
-                      console.log(godElement);
-                      godElement.addClass(userGod.toLowerCase());
-                      opponentGodElement.addClass(opponentGod.toLowerCase());
-                    });
-                    $(`#${containerId}`).on('click', '.close-button', function (event) {
-                      console.log("Close button clicked!");
-                      // Get the ID of the clicked close button
-                      const closeBtnId = event.currentTarget.id;
-                      const id = closeBtnId.split("-");
-                      id.pop();
-                      id.pop();
-                      const matchId = id.join("-");
-                      console.log(matchId);
-                      // Your existing logic for handling close button click goes here
-                      const container = $(`#${matchId}`);
-                      container.remove();
-                    });
+                        const sorted = myCards.sort((a, b) => {
+                          return a.mana - b.mana;
+                        });
+                        console.log(sorted);
+                        sorted.map((x) => {
+                          if ($(`#${id}-container`).find(target).find(".image-container").children().length <= sorted.length - 1) {
+                            $(`#${id}-container`).find(target).find(".image-container").append(`<img class="card-image" src=${x.image}/>`);
+                          }
+                        });
+                      });
+                    };
+                    showCards(userCards, '.user-container');
+                    showCards(opponentCards, '.opponent-container');
+                    const godElement = $(`#${id}-container`).find('.god');
+                    const opponentGodElement = $(`#${id}-container`).find('.opponent-container .god');
+                    console.log(godElement);
+                    godElement.addClass(userGod.toLowerCase());
+                    opponentGodElement.addClass(opponentGod.toLowerCase());
                   });
-                }
-              });
+                  $(`#${containerId}`).on('click', '.close-button', function (event) {
+                    console.log("Close button clicked!");
+                    // Get the ID of the clicked close button
+                    const closeBtnId = event.currentTarget.id;
+                    const id = closeBtnId.split("-");
+                    id.pop();
+                    id.pop();
+                    const matchId = id.join("-");
+                    console.log(matchId);
+                    // Your existing logic for handling close button click goes here
+                    const container = $(`#${matchId}`);
+                    container.remove();
+                  });
+                });
+              }
             });
+          }).fail(function() {
+            displayErrorMessage("An error occurred. Please try again.");
+            $('#loading').hide(); // Hide loading sign
           });
-        } catch (error) {
-          console.error("An error occurred:", error);
-          alert("An error occurred. Please check the console for details.");
+        }).fail(function() {
+          displayErrorMessage("An error occurred. Please try again.");
+          $('#loading').hide(); // Hide loading sign
+        });
+      }).fail(function(jqXHR, textStatus) {
+        if (jqXHR.status === 429) {
+          displayErrorMessage("Rate limit exceeded. Please try again later.");
+        } else {
+          displayErrorMessage("An error occurred. Please try again.");
         }
+        $('#loading').hide(); // Hide loading sign
       });
-
+    });
 
     $('#reset').click(function () {
       $('.gu-logo').css('scale', 'calc(1)');
@@ -324,10 +343,9 @@
         console.error("An error occurred:", error);
         alert("An error occurred. Please check the console for details.");
       }
-    }
-  });
-    
+    };
 </script>
+
 
   <script>
     let vid = document.getElementById("background-video");
