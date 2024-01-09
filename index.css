@@ -108,7 +108,7 @@ overflow: hidden;
 }
 #output {
   display: flex;
-  margin: 0px 0 60px 0px;
+  margin: 0px 0 40px 0px;
   align-items: center;
   top: 50%;
   position: relative;
@@ -144,11 +144,11 @@ padding: 25px;
 
 /* Add new styles for the topbar2-text class */
 .topbar2-text {
-  font-size: 12px;
+  font-size: 15px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
   letter-spacing: 0.8px;
-  line-height: 18px;
+  line-height: 22px;
   text-align: center;
   width: 73vw;
   background-color: rgba(0, 0, 0, 0.286);
