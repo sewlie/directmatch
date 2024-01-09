@@ -436,7 +436,7 @@ text-transform: capitalize;
   /* padding: 10px 0; */
 }
 
-.versus-container .image-container {display: flex;justify-content: space-around;flex-wrap: wrap;margin: 20px 0 0 0;}
+.versus-container .image-container {display: flex;flex-wrap: wrap;margin: 20px 0 0 0;justify-content: center;}
 
 /* Style the buttons inside .versus-container */
 
@@ -478,8 +478,8 @@ display: none;
 display: flex;
 }
 .card-image {
-  padding: 5px;
-  width: 10vw;
+  padding: 3px;
+  width: 12vw;
   height: auto;
   transition: all 0.1s ease-in-out;
   display: grid;
