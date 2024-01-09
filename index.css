@@ -274,7 +274,7 @@ font-size: 18px;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 15px 45px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 15px 45px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 10px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
 
 #reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 47px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
 
@@ -773,7 +773,7 @@ font-size: 18px;
   font-size: 18px;
   }
 
-#submit {background-color: #000000b1;color: white;padding: 15px 80px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 5px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
+#submit {background-color: #000000b1;color: white;padding: 15px 80px;border: none;border-radius: 5px;cursor: pointer;margin: 20px 0 10px 0;font-family: "Open Sans", sans-serif;/* width: 25vw; */font-size: 18px;}
 
 #reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 83px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
 
