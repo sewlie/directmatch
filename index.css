@@ -20,7 +20,23 @@
 }
 
 
+.match-date {
+  font-size: 18px;
+  margin: 10px 0 0 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+}
 
+
+/* Red background for lost matches */
+.action-button.lost {
+  background-color: #bd000066;
+}
+
+/* Green background for won matches */
+.action-button.won {
+  background-color: #0195057a;
+}
 
 .god.magic {
   background-color: #17469b85;
@@ -33,6 +49,9 @@
 
 @media only screen and (max-width: 699px) {
 
+.match-date {
+  font-size: 15px;
+}
 
 .loading-user-cards {
   text-align: center;
@@ -55,7 +74,7 @@
       transform: scale(1.4);
     }
     40% {
-      transform: scale(1.6);
+      transform: scale(1.5);
     }
     100% {
       transform: scale(1.4);
@@ -73,33 +92,44 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center; /* Center the image */
-  z-index: 80; /* Ensure it's above other content */
+  z-index: 80;
   display: none;
 }
 
-.loading-container {
+.loading-desktopcontainer {
   display: flex;
   align-content: center;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 98%;
+  /* height: 98%; */
+  margin: 25vh 0 0 0;
+}
+
+.loading-bar-container {
+  margin: 40px 0 0 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 18px;
 }
 
 .loading-svg {
+  margin: 0 auto;
   width: 40vw;
   animation: scaleAnimation 1s infinite ease-in-out;
 }
 
 body {
-  background-image: url(bg2.png);
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.661);
   color: rgb(255, 255, 255);
 }
 #background-video {
@@ -150,9 +180,9 @@ padding: 25px;
   letter-spacing: 0.8px;
   line-height: 22px;
   text-align: center;
-  width: 73vw;
+  width: 70vw;
   background-color: rgba(0, 0, 0, 0.286);
-  padding: 20px 3.7vw;
+  padding: 20px 5.7vw;
   border-radius: 10px;
   margin: 20px 0 5px 0;
 }
@@ -286,20 +316,15 @@ background-color: #00000070;
 background-color: #ffffff3e;
 }
 
-.action-button:hover {
-background-color: #00000070;
-}
-
 .action-button {
   display: flex;
-  background-color: rgb(136 228 255 / 18%);
   color: white;
   padding: 20px 0px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   width: 70vw;
-  margin: 10px 0 15px;
+  margin: 10px 0 20px;
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -308,11 +333,17 @@ background-color: #00000070;
   flex-wrap: wrap;
 }
 
+
+
 .action-button p {
   width: 80%;
   font-family: "Open Sans", sans-serif;
   letter-spacing: 0px;
   font-size: 100%;
+}
+
+.action-button:hover {
+  opacity: calc(0.8);
 }
 
 .horizontal-line {
@@ -329,25 +360,27 @@ background-color: #00000070;
   flex-wrap: wrap;
   align-items: center;
   border-radius: 10px;
-  font-size: 22px;
-  background-color: rgb(0 0 0 / 0%);
+  /* font-size: 26px; */
+  background-color: rgb(0 0 0 /  0.286);
   border-color: #00000063;
   border-style: none;
   border-radius: 5px;
-  border-width: 2px;
-  margin: 30px 0;
+  /* border-width: 2px; */
+  margin: 40px 0 30px;
+  padding: 30px 0;
+  width: 70vw;
 }
 
-.playercard h2 {/* font-family: Unchained; */padding: 0 10px;font-size: 28px;}
+.playercard h2 {/* font-family: Unchained; */padding: 0 10px;font-size: 26px;}
 
-.playercard p {/* margin: 10px 0 0px 0; */padding: 6px 0 0 0;font-size: 20px;}
+.playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
 
 .result p1 {
   background: #0195057a;
   padding: 10px 0;
   font-family: Goldman;
   font-weight: normal;
-  width: 105px;
+  width: 90px;
   border-radius: 4px;
 }
 .result p2 {
@@ -364,12 +397,12 @@ font-weight: normal;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0;
-  width: 105px;
+  width: 90px;
   border-radius: 4px;
 }
 
 /* Add these styles to your CSS */
-.versus-container {/* justify-content: space-around; */background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 15px 0px 20px 0;width: 70vw;min-width: 280px;/* align-items: center; */}
+.versus-container {/* justify-content: space-around; */background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 0px 0px 30px 0;width: 70vw;min-width: 280px;/* align-items: center; */}
 
 .player-container {
   display: flex;
@@ -423,7 +456,8 @@ text-transform: capitalize;
   font-family: Goldman;
   font-weight: normal;
   padding: 10px 0px;
-  width: 105px;
+  width: 120px;
+  font-size: 15px;
 }
 .result {
   background: inherit;
@@ -554,7 +588,7 @@ width: 250px;
       transform: scale(1.4);
     }
     40% {
-      transform: scale(1.6);
+      transform: scale(1.5);
     }
     100% {
       transform: scale(1.4);
@@ -576,39 +610,41 @@ width: 250px;
   display: none;
 }
 
-.loading-container {
+.loading-desktopcontainer {
   display: flex;
   align-content: center;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 98%;
+  /* height: 98%; */
+  margin: 20vh 0 0 0;
+}
+
+.loading-bar-container {
+  margin: 3vw 0 0 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.5vw;
 }
 
 .loading-svg {
-  display: flex;
+  margin: 0 auto;
   width: 20vw;
   animation: scaleAnimation 1s infinite ease-in-out;
-  z-index: 100;
-}
-
-.loading-svg2 {
-  display: flex;
-  width: 10vw;
-  animation: scaleAnimation 1s infinite ease-in-out;
-  z-index: 100;
 }
 
 
 body {
-  background-image: url(bg2.png);
   margin: 0;
   font-family: Open Sans, sans-serif;
   font-weight: bold;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.661);
   color: rgb(255, 255, 255);
 }
 #background-video {
@@ -619,7 +655,7 @@ overflow: hidden;
   display: flex;
   flex-direction:
   column;
-  margin: 20px 0 60px 0px;
+  margin: -1px 0 60px 0px;
   align-items: center;
   /* top: 50%; */
   /* position: relative; */
@@ -660,9 +696,9 @@ padding: 25px;
   letter-spacing: 0.9px;
   line-height: 28px;
   text-align: center;
-  width: 550px;
+  max-width: 540px;
   background-color: rgba(0, 0, 0, 0.286);
-  padding: 20px 27px;
+  padding: 20px 31px;
   border-radius: 10px;
   margin: 20px 0 5px 0;
 }
@@ -786,23 +822,22 @@ background-color: #ffffff3e;
 }
 
 .action-button:hover {
-background-color: #00000070;
+  opacity: calc(0.8);
 }
 
 .action-button {
   display: flex;
   flex-direction: row;
-  background-color: rgb(136 228 255 / 18%);
   color: white;
   padding: 20px 0px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   width: 450px;
-  margin: 10px auto 15px;
+  margin: 10px auto 20px;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   font-family: Open Sans, sans-serif;
   font-weight: 600;
 }
@@ -852,12 +887,14 @@ background-color: #00000070;
   align-items: center;
   border-radius: 10px;
   font-size: 22px;
-  background-color: rgb(0 0 0 / 0%);
+  background-color: rgb(0 0 0 / 0.286);
   border-color: #00000063;
   border-style: none;
   border-radius: 5px;
   border-width: 2px;
-  margin: 25px 0;
+  margin: 40px 0 30px;
+  padding: 30px 0;
+  width: 450px;
 }
 
 .playercard h2 {/* font-family: Unchained; */padding: 0 10px;}
@@ -865,7 +902,7 @@ background-color: #00000070;
 .playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
 
 /* Add these styles to your CSS */
-.versus-container {justify-content: space-around;background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 28px 0px 20px 0;width: 650px;align-items: center;}
+.versus-container {justify-content: space-around;background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 30px 0px;width: 650px;align-items: center;}
 
 .player-container {
 display: flex;
