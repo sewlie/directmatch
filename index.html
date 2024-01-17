@@ -419,16 +419,15 @@
 
                                                             allImages.each(function() {
                                                                 if (this.complete && this.naturalHeight !== 0) {
-                                                                    // Image is already fetched, wait a bit before marking as loaded
                                                                     setTimeout(() => {
                                                                         allImagesLoaded++;
                                                                         if (allImagesLoaded === allImages.length) {
                                                                             $(`#loading-user-cards-${containerId}, #loading-opponent-cards-${containerId}`).hide();
                                                                             resolve();
                                                                         }
-                                                                    }, 500); // Delay can be adjusted
+                                                                    }, 500);
                                                                 } else {
-                                                                    // Image is not loaded yet, attach load event
+
                                                                     $(this).on('load', function() {
                                                                         allImagesLoaded++;
                                                                         if (allImagesLoaded === allImages.length) {
@@ -440,11 +439,9 @@
                                                             });
 
                                                             if (allImagesLoaded === allImages.length) {
-                                                                // All images are already loaded
                                                                 $(`#loading-user-cards-${containerId}, #loading-opponent-cards-${containerId}`).hide();
                                                                 resolve();
                                                             } else {
-                                                                // Set a timeout as a fallback
                                                                 setTimeout(resolve, 7000);
                                                             }
                                                         });
