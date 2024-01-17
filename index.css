@@ -25,6 +25,7 @@
   margin: 10px 0 0 0;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
+  pointer-events: none;
 }
 
 
@@ -1033,8 +1034,6 @@ display: flex;
   width: 85px;
   height: auto;
   transition: all 0.1s ease-in-out;
-  /* display: grid; */
-  /* grid-template-columns: repeat(6, 1fr); */
 }
 .card-image:hover {
 transform: scale(1.1);

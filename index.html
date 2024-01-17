@@ -349,10 +349,16 @@
                                               `);
                                               $(`#${containerId}`).on('click', '.action-button', async (e) => {
 
-                                                  const id = $(e.target).data('match-id');
-                                                  const targetMatchArr = filtered.filter(x => x.game_id === id);
-                                                  const targetMatch = targetMatchArr[0];
-                                                  const { player_won, player_info } = targetMatch;
+                                                    const id = $(e.target).data('match-id');
+                                                    const targetMatchArr = filtered.filter(x => x.game_id === id);
+
+                                                    if (targetMatchArr.length === 0) {
+                                                        console.error(`No matches found for game_id: ${id}`);
+                                                        return;
+                                                    }
+
+                                                    const targetMatch = targetMatchArr[0];
+                                                    const { player_won, player_info } = targetMatch;
                                                   await new Promise(resolve => setTimeout(resolve, 500));
                                                   const outcome = parseInt(player_won) === parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>';
                                                   const opponentOutcome = parseInt(player_won) !== parseInt(playerid) ? '<p1>WON</p1>' : '<p3>LOST</p3>';
