@@ -47,18 +47,18 @@ $(document).ready(function () {
           if (!playerid.trim()) {
               displayErrorMessage("Please input your Gods Unchained Player ID");
               highlightInputBox();
-              $('#loading').hide(); // Hide in error cases
+              $('#loading').hide();
               return;
           }
           const invalidInput = /\D/.test(playerid);
           if (invalidInput) {
               displayErrorMessage("Your Player ID must only contain numbers");
               highlightInputBox();
-              $('#loading').hide(); // Hide in error cases
+              $('#loading').hide();
               return;
           }
 
-          const currentTimestamp = Math.floor(Date.now() / 1000); // Current timestamp in seconds
+          const currentTimestamp = Math.floor(Date.now() / 1000);
           const matches = [];
           let page, page2;
           let wonRecords = [];
@@ -72,7 +72,6 @@ $(document).ready(function () {
               } catch (error) {
                   if (retryCount > 0) {
                       console.log(`Retrying API request: ${url}`);
-                      // Wait for a moment before retrying (you can adjust the delay as needed)
                       await new Promise(resolve => setTimeout(resolve, 1000));
                       return makeApiRequest(url, retryCount - 1);
                   } else {
@@ -82,7 +81,6 @@ $(document).ready(function () {
               }
           }
 
-          // First API call
           await new Promise(async (resolve, reject) => {
               $.get(`https://api.godsunchained.com/v0/properties?user_id=${playerid}`, async (d) => {
                   try {
@@ -95,10 +93,8 @@ $(document).ready(function () {
                       loadingpercent = 1;
                       $("#loadingPercentText").text(`${loadingpercent}`);
 
-                      // Add a 1-second pause before the next API call
                       await new Promise(resolve => setTimeout(resolve, 1000));
 
-                      // Second API call
                       $.get(`https://api.godsunchained.com/v0/match?game_mode=6&end=${currentTimestamp}-&player_won=${playerid}`, async (data) => {
                           try {
                               const obj = JSON.parse(data);
@@ -108,10 +104,8 @@ $(document).ready(function () {
                               loadingpercent = 2;
                               $("#loadingPercentText").text(`${loadingpercent}`);
 
-                              // Add a 1-second pause before the next API call
                               await new Promise(resolve => setTimeout(resolve, 1000));
 
-                              // Third API call for won matches - last page
                               $.get(`https://api.godsunchained.com/v0/match?game_mode=6&end=${currentTimestamp}-&player_won=${playerid}&page=${page}`, async (data) => {
                                   try {
                                       const obj = JSON.parse(data);
@@ -121,12 +115,9 @@ $(document).ready(function () {
                                       loadingpercent = 3;
                                       $("#loadingPercentText").text(`${loadingpercent}`);
 
-                                      // Add a 1-second pause before the next API call
                                       await new Promise(resolve => setTimeout(resolve, 1000));
 
-                                      // Check if there's more than one page
                                       if (page > 1) {
-                                          // Fourth API call for won matches - second last page
                                           $.get(`https://api.godsunchained.com/v0/match?game_mode=6&end=${currentTimestamp}-&player_won=${playerid}&page=${page - 1}`, async (data) => {
                                               try {
                                                   const obj = JSON.parse(data);
@@ -136,17 +127,15 @@ $(document).ready(function () {
                                                   loadingpercent = 4;
                                                    $("#loadingPercentText").text(`${loadingpercent}`);
 
-                                                  // Add a 1-second pause before the next API call
                                                   await new Promise(resolve => setTimeout(resolve, 1000));
                                                   resolve();
                                               } catch (error) {
                                                   console.error("Error retrieving won matches from second last page:", error);
-                                                  // Handle the exception or display an error message
                                                   reject("Error retrieving won matches from second last page");
                                               }
                                           }).fail(function() {
                                               displayErrorMessage("Error retrieving won matches from second last page. Please try again.");
-                                              $('#loading').hide(); // Hide in error cases
+                                              $('#loading').hide();
                                               reject("Error retrieving won matches from second last page");
                                           });
                                       } else {
@@ -154,17 +143,15 @@ $(document).ready(function () {
                                       }
                                   } catch (error) {
                                       console.error("Error 2:", error);
-                                      // Handle the exception or display an error message for the third AJAX request
                                       reject("Error 2");
                                   }
                               }).fail(function() {
                                   displayErrorMessage("Error 2. Please try again.");
-                                  $('#loading').hide(); // Hide in error cases
+                                  $('#loading').hide();
                                   reject("Error 2");
                               });
                           } catch (error) {
                               console.error("Error 1:", error);
-                              // Handle the exception or display an error message for the first AJAX request
                               reject("Error 1");
                           }
                       }).fail(function(jqXHR, textStatus) {
@@ -173,19 +160,17 @@ $(document).ready(function () {
                           } else {
                               displayErrorMessage("Error 1. Please try again.");
                           }
-                          $('#loading').hide(); // Hide in error cases
+                          $('#loading').hide();
                           reject("Error 1");
                       });
                   } catch (error) {
                       console.error("Error:", error);
-                      // Handle the exception or display an error message for the click handler
-                      $('#loading').hide(); // Hide in error cases
+                      $('#loading').hide();
                       reject("Error");
                   }
               });
           });
 
-          // Fifth API call
           await new Promise(async (resolve, reject) => {
           $.get(`https://api.godsunchained.com/v0/match?game_mode=6&end=${currentTimestamp}-&player_lost=${playerid}`, async (data) => {
                           try {
@@ -196,10 +181,8 @@ $(document).ready(function () {
                               loadingpercent = 5;
                               $("#loadingPercentText").text(`${loadingpercent}`);
 
-                              // Add a 1-second pause before the next API call
                               await new Promise(resolve => setTimeout(resolve, 1000));
 
-                  // Sixth API call
                   $.get(`https://api.godsunchained.com/v0/match?game_mode=6&end=${currentTimestamp}-&player_lost=${playerid}&page=${page2}`, async (data) => {
 
                       try {
@@ -210,12 +193,9 @@ $(document).ready(function () {
                           loadingpercent = 6;
                           $("#loadingPercentText").text(`${loadingpercent}`);
 
-                          // Add a 1-second pause before the next API call
                           await new Promise(resolve => setTimeout(resolve, 1000));
 
-                          // Check if there's more than one page
                           if (page > 1) {
-                              // Seventh API call for lost matches - second last page
                           $.get(`https://api.godsunchained.com/v0/match?game_mode=6&end=${currentTimestamp}-&player_lost=${playerid}&page=${page2 - 1}`, async (data) => {
                               try {
                                   const obj = JSON.parse(data);
@@ -225,7 +205,6 @@ $(document).ready(function () {
                                   loadingpercent = 7;
                                   $("#loadingPercentText").text(`${loadingpercent}`);
 
-                                  // Add a 1-second pause before the next API call
                                   await new Promise(resolve => setTimeout(resolve, 1000));
 
                                   loadingpercent = 8;
@@ -236,12 +215,11 @@ $(document).ready(function () {
                                   resolve();
                                               } catch (error) {
                                                   console.error("Error retrieving won matches from second last page:", error);
-                                                  // Handle the exception or display an error message
                                                   reject("Error retrieving won matches from second last page");
                                               }
                                           }).fail(function() {
                                               displayErrorMessage("Error retrieving won matches from second last page. Please try again.");
-                                              $('#loading').hide(); // Hide in error cases
+                                              $('#loading').hide();
                                               reject("Error retrieving won matches from second last page");
                                           });
                               } else {
@@ -249,17 +227,15 @@ $(document).ready(function () {
                               }
                               } catch (error) {
                                   console.error("Error 2:", error);
-                                  // Handle the exception or display an error message for the third AJAX request
                                   reject("Error 2");
                               }
                               }).fail(function() {
                                   displayErrorMessage("Error 2. Please try again.");
-                                  $('#loading').hide(); // Hide in error cases
+                                  $('#loading').hide();
                                   reject("Error 2");
                               });
                           } catch (error) {
                               console.error("Error 1:", error);
-                              // Handle the exception or display an error message for the first AJAX request
                               reject("Error 1");
                           }
                       }).fail(function(jqXHR, textStatus) {
@@ -268,7 +244,7 @@ $(document).ready(function () {
                           } else {
                               displayErrorMessage("Error 1. Please try again.");
                           }
-                          $('#loading').hide(); // Hide in error cases
+                          $('#loading').hide();
                           reject("Error 1");
                       });
           });
@@ -281,7 +257,7 @@ $(document).ready(function () {
                               const filtered = flattened.sort((a, b) => b.end_time - a.end_time);
 
                               if (output.children().length === 0) {
-                                  $('#loading').hide(); // Hide in error cases
+                                  $('#loading').hide();
                                   const resultDiv = $('<div class="playercard">');
                                   resultDiv.append(`<h2>${username}</h2>`);
                                   resultDiv.append(`<p>${wonRecords && wonRecords.length || 0} W&nbsp;&nbsp;-&nbsp;&nbsp;${lostRecords && lostRecords.length || 0} L</p>`);
@@ -296,7 +272,7 @@ $(document).ready(function () {
 
                                   filtered.map((x) => {
                                       const { player_won, player_lost, end_time } = x;
-                                      const dateStr = unixTimestampToDate(end_time); // Convert Unix timestamp to date string
+                                      const dateStr = unixTimestampToDate(end_time);
                                       const participants = [player_won, player_lost];
                                       const opponentid = participants.find((x) => x !== parseInt(playerid));
                                       const matchId = x.game_id;
@@ -348,7 +324,7 @@ $(document).ready(function () {
                                                           </div>
                                                           <div class="container"></div>
                                                           <div class="loading-user-cards" id="loading-user-cards-${id}">
-                                                              Loading...
+                                                              Downloading cards...
                                                           </div>
                                                           <div class="image-container"></div>
                                                       </div>
@@ -362,7 +338,7 @@ $(document).ready(function () {
                                                                   <div class="result">${opponentOutcome}</div>
                                                               </div>
                                                               <div class="loading-opponent-cards" id="loading-opponent-cards-${id}">
-                                                                  Loading...
+                                                                Downloading cards...
                                                               </div>
                                                               <div class="image-container"></div>
                                                           </div>
@@ -373,10 +349,8 @@ $(document).ready(function () {
 
                                           if ($(`#${id}-container`).children().length === 1) {
                                               $(`#${id}-container`).append(container);
-                                              // Show the "Close" button after clicking "See Match Details"
                                               $(`#${id}-${playerid}-close`).show();
 
-                                              // Function to check if all images have loaded within a container
                                               function checkImagesLoaded(containerId) {
                                                   return new Promise((resolve, reject) => {
                                                       const allImages = $(`#loading-user-cards-${containerId}, #loading-opponent-cards-${containerId}`).siblings(".image-container").find("img");
@@ -385,19 +359,15 @@ $(document).ready(function () {
                                                       allImages.on('load', function () {
                                                           allImagesLoaded++;
                                                           if (allImagesLoaded === allImages.length) {
-                                                              // All images have loaded
                                                               console.log("All images have loaded for container:", containerId);
                                                               $(`#loading-user-cards-${containerId}, #loading-opponent-cards-${containerId}`).hide();
                                                               resolve();
                                                           }
                                                       });
 
-                                                      // Set a timeout to resolve the promise even if some images fail to load
-                                                      setTimeout(resolve, 5000); // Adjust the timeout as needed
+                                                      setTimeout(resolve, 3000);
                                                   });
                                               }
-
-                                              // Call the function to check image loading for each container and then proceed
                                               checkImagesLoaded(id).then(() => {
                                                   console.log("All images have loaded for container:", id);
                                                   $(`#loading-user-cards-${id}, #loading-opponent-cards-${id}`).hide();
@@ -441,14 +411,12 @@ $(document).ready(function () {
 
                                           $(`#${containerId}`).on('click', '.close-button', function (event) {
                                               console.log("Close button clicked!");
-                                              // Get the ID of the clicked close button
                                               const closeBtnId = event.currentTarget.id;
                                               const id = closeBtnId.split("-");
                                               id.pop();
                                               id.pop();
                                               const matchId = id.join("-");
                                               console.log("Closing match details for matchId:", matchId);
-                                              // Close the match detail view
                                               $(`#${matchId}`).remove();
                                           });
                                       });
@@ -457,8 +425,7 @@ $(document).ready(function () {
 
       } catch (error) {
           console.error("Submit Error:", error);
-          // Handle the exception or display an error message for the submit function
-          $('#loading').hide(); // Hide in error cases
+          $('#loading').hide();
       }
   });
 
