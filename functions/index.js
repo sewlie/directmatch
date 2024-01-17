@@ -88,7 +88,7 @@ $(document).ready(function () {
 
             async function getOpponentUsername(opponentid) {
                 try {
-                    await wait(250);
+                    await wait(300);
                     const response = await $.get(`https://api.godsunchained.com/v0/properties?user_id=${opponentid}`);
                     const data = JSON.parse(response);
                     return data.records[0].username;
