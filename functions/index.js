@@ -4,6 +4,14 @@ $(document).ready(function () {
     const output = $('#output');
     let loadingpercent;
 
+    window.onload = function() {
+        setTimeout(function() {
+            $('#wait').hide();
+            $('#submit').show();
+        }, 1000);
+    }
+
+
     function toggleSubmitButton() {
         const playerId = input.val();
     }
