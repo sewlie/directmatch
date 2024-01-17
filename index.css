@@ -28,13 +28,10 @@
   pointer-events: none;
 }
 
-
-/* Red background for lost matches */
 .action-button.lost {
   background-color: #bd000066;
 }
 
-/* Green background for won matches */
 .action-button.won {
   background-color: #0195057a;
 }
