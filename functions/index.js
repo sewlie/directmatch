@@ -88,10 +88,10 @@ $(document).ready(function () {
 
             async function getOpponentUsername(opponentid) {
                 try {
-                    await wait(300); // Wait for 300 milliseconds to rate limit
+                    await wait(300);
                     const response = await $.get(`https://api.godsunchained.com/v0/properties?user_id=${opponentid}`);
                     const data = JSON.parse(response);
-                    return data.records[0].username || "???";
+                    return data.records[0].username || "Unknown";
                 } catch (error) {
                     console.error("Error fetching opponent's username:", error);
                     return "???";
