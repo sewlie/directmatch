@@ -88,13 +88,13 @@ $(document).ready(function () {
 
             async function getOpponentUsername(opponentid) {
                 try {
-                    await wait(300);
+                    await wait(300); // Wait for 300 milliseconds to rate limit
                     const response = await $.get(`https://api.godsunchained.com/v0/properties?user_id=${opponentid}`);
                     const data = JSON.parse(response);
-                    return data.records[0].username;
+                    return data.records[0].username || "???";
                 } catch (error) {
                     console.error("Error fetching opponent's username:", error);
-                    return opponentid;
+                    return "???";
                 }
             }
     
@@ -226,6 +226,7 @@ $(document).ready(function () {
                                             loadingpercent = 8;
                                             $("#loadingPercentText").text(`${loadingpercent}`);
                                             await new Promise(resolve => setTimeout(resolve, 300));
+                                            $('#loading').hide();
     
                                             resolve();
                                         } catch (error) {
@@ -263,7 +264,7 @@ $(document).ready(function () {
                     reject("Error 1");
                 });
             });
-    
+
             console.log("Won Records:", wonRecords);
             console.log("Lost Records:", lostRecords);
             matches.push(wonRecords);
@@ -307,9 +308,8 @@ $(document).ready(function () {
                         </div>
                     `);
 
-                    $('#loading').hide();
-
                 $(`#${containerId}`).on('click', '.action-button', async (e) => {
+                    
                     const id = $(e.target).data('match-id');
                     const targetMatchArr = filtered.filter(x => x.game_id === id);
                     const targetMatch = targetMatchArr[0];
@@ -420,6 +420,8 @@ $(document).ready(function () {
                     const godElement = $(`#${id}-container`).find('.god');
                     const opponentGodElement = $(`#${id}-container`).find('.opponent-container .god');
                     console.log(godElement);
+                    console.log(playerid);
+                    console.log(opponentPlayerid);
                     godElement.addClass(userGod.toLowerCase());
                     opponentGodElement.addClass(opponentGod.toLowerCase());
 
@@ -435,7 +437,10 @@ $(document).ready(function () {
                     });
                 });
             }
-            $('#loading').hide();
+            setTimeout(() => {
+                    $('#loading').hide();
+            }, 500);
+
         }
     } catch (error) {
         console.error("Submit Error:", error);
