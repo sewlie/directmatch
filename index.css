@@ -19,7 +19,6 @@
   src: url(ElMessiri-Bold.ttf);
 }
 
-
 .match-date {
   font-size: 18px;
   margin: 10px 0 0 0;
@@ -47,6 +46,10 @@
 
 
 @media only screen and (max-width: 699px) {
+
+  ::-webkit-scrollbar {
+    display: none;
+}
 
 .match-date {
   font-size: 15px;
@@ -692,6 +695,11 @@ body {
   color: rgb(255, 255, 255);
   background-image: url(bg4.png);
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 #background-video {
 display: none;
 overflow: hidden;
