@@ -33,7 +33,7 @@
 }
 
 .mode-button:hover {
-  background-color: #def5ffa0;
+  background-color: #fff5dea0;
 }
 
 .match-date {
@@ -167,9 +167,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.661);
-  color: rgb(255, 255, 255);
-  background-image: url(bg4.png);
+  background-image: url(bg.png);
 }
 #background-video {
 display: none;
@@ -719,7 +717,7 @@ body {
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.661);
   color: rgb(255, 255, 255);
-  background-image: url(bg4.png);
+  background-image: url(bg.png);
 }
 
 ::-webkit-scrollbar {
