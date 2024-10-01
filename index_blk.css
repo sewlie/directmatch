@@ -1,0 +1,1172 @@
+@font-face {
+  font-family: Unchained;
+  src: url(unchained.ttf);
+}
+@font-face {
+  font-family: Goldman;
+  src: url(Goldman-Regular.ttf);
+}
+@font-face {
+  font-family: GoldmanBold;
+  src: url(Goldman-Bold.ttf);
+}
+@font-face {
+  font-family: ElMessiri;
+  src: url(ElMessiri-Regular.ttf);
+}
+@font-face {
+  font-family: ElMessiriBold;
+  src: url(ElMessiri-Bold.ttf);
+}
+
+.mode {
+  padding: 4px 15px;
+}
+
+.mode-button {
+  padding: 10px 20px;
+  font-family: 'Goldman';
+  margin: 15px 5px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.mode-button:hover {
+  background-color: #fff5dea0;
+}
+
+.match-date {
+  font-size: 18px;
+  margin: 10px 0 0 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  pointer-events: none;
+}
+
+.action-button.lost {
+  background-color: #bd000066;
+}
+
+.action-button.won {
+  background-color: #0195057a;
+}
+
+.god.magic {
+  background-color: #17469b85;
+} 
+.god.nature {background-color: #0195057a;}  
+.god.war { background-color: #bd000066; }  
+.god.death {background-color: #11776975;}  
+.god.light {background-color: #b9b4577d;}  
+.god.deception { background-color: #7e2d7994; } 
+
+
+@media only screen and (max-width: 699px) {
+
+  .mode-button {
+    padding: 10px 20px;
+    font-family: 'Goldman';
+    margin: 15px 5px 0;
+    font-size: 14px;
+    border-radius: 10px;
+    border-style: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+}
+
+.match-date {
+  font-size: 15px;
+}
+
+.loading-user-cards {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px 0 10px;
+  font-family: 'GOLDMAN';
+  font-weight: normal;
+}
+
+.loading-opponent-cards {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px 0 10px;
+  font-family: 'GOLDMAN';
+  font-weight: normal;
+}
+
+@keyframes scaleAnimation {
+    0% {
+      transform: scale(1.4);
+    }
+    40% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1.4);
+    }
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(32, 35, 49, 0.917);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center; /* Center the image */
+  z-index: 80;
+  display: none;
+}
+
+.loading-desktopcontainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* height: 98%; */
+  margin: 25vh 0 0 0;
+}
+
+.loading-bar-container {
+  margin: 40px 0 0 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+.loading-bar-container2 {
+  margin: 40px 0 0 0;
+  display: none;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+.loading-svg {
+  margin: 0 auto;
+  width: 40vw;
+  animation: scaleAnimation 1s infinite ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(bg22.png);
+}
+#background-video {
+display: none;
+overflow: hidden;
+}
+#output {
+  display: flex;
+  margin: 0px 0 40px 0px;
+  align-items: center;
+  top: 50%;
+  position: relative;
+  bottom: 50%;
+  flex-direction: column;
+}
+
+#output h2 {margin: 0;display: flex;flex-direction: column;justify-content: center;/* font-size: 28px; */}
+
+.line {
+width: 80%;
+margin: 20px 0;
+display: flex;
+height: 2px;
+background-color: #ffffff;
+}
+
+.profile {
+background-color: rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+padding: 25px;
+}
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0px 30px 0px 30px; */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.topbar2 {display: flex;flex-wrap: wrap;justify-content: center;/* margin-top: 20px; */}
+
+/* Add new styles for the topbar2-text class */
+.topbar2-text {
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.8px;
+  line-height: 22px;
+  text-align: center;
+  width: 70vw;
+  background-color: rgba(0, 0, 0, 0.286);
+  padding: 20px 5.7vw;
+  border-radius: 10px;
+  margin: 20px 0 5px 0;
+}
+
+.topbar2-text p {
+  padding: 0 40px; 
+}
+
+.topbar h1 {
+font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.logo-and-text p {
+  margin: 8px 0 8px;
+  font-size: 14px;
+  font-family: 'Goldman';
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.logo-and-text {
+  background-color: #000000b1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* position: fixed; */
+  width: 100%;
+}
+
+.logo {
+  width: auto;
+  height: 20px;
+  margin: 8px 4px 8px -9px;
+  display: none;
+}
+
+
+
+.dmlogo {
+  width: 70vw;
+  margin: 6vh 0 0px 0;
+}
+
+#container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#matches { 
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  margin-top: 20px; 
+}
+
+.matches-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-control {
+  padding: 20px 0;
+  border: none;
+  border-radius: 5px;
+  width: 80vw;
+  min-width: 50vw;
+  /* margin-bottom: 5px; */
+  text-align: center;
+  font-size: 18px;
+}
+
+.flatpickr-mobile {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 50vw;
+  min-width: 50vw;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.topbar-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  margin: 0 ;
+  
+}
+
+.button-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+#textbox {
+  padding: 20px 0;
+  margin-bottom: 15px;
+  border-width: 0px;
+  border-radius: 5px;
+  width: 80vw;
+  text-align: center;
+  font-size: 18px;
+  }
+
+  #wait {
+    background-color: #000000b1;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    pointer-events: none;
+    margin: 20px 0 10px 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    cursor: not-allowed;
+  }
+
+#submit {
+  display: none;
+  background-color: #000000b1;
+  color: white;
+  padding: 15px 45px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0 10px 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
+
+#reset {font-weight: 400;background-color: #00000000;border-color: #ffffff94;color: rgb(255 255 255 / 89%);padding: 13px 47px;border-style: solid;border-radius: 5px;cursor: pointer;font-family: "Open Sans", sans-serif;/* width: 25vw; */margin: 5px 0 0 0;font-size: 18px;}
+
+#submit:hover {
+background-color: #00000070;
+}
+
+#reset:hover {
+background-color: #ffffff3e;
+}
+
+.action-button {
+  display: flex;
+  color: white;
+  padding: 20px 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70vw;
+  margin: 10px 0 20px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+
+.action-button p {
+  width: 80%;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0px;
+  font-size: 100%;
+}
+
+.action-button:hover {
+  opacity: calc(0.8);
+}
+
+.horizontal-line {
+  width: 95%;
+  height: 2px;
+  background-color: #ffffffd4;
+  margin: 30px 0 28px 0;
+}
+
+.playercard {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 10px;
+  /* font-size: 26px; */
+  background-color: rgb(0 0 0 /  0.286);
+  border-color: #00000063;
+  border-style: none;
+  border-radius: 5px;
+  /* border-width: 2px; */
+  margin: 40px 0 30px;
+  padding: 30px 0;
+  width: 70vw;
+}
+
+.playercard h2 {/* font-family: Unchained; */padding: 0 10px;font-size: 26px;}
+
+.playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
+
+.result p1 {
+  background: #0195057a;
+  padding: 10px 0;
+  font-family: Goldman;
+  font-weight: normal;
+  width: 90px;
+  border-radius: 4px;
+}
+.result p2 {
+font-size: 18px;
+align-items: center;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+  font-family: "Open Sans", sans-serif;
+font-weight: normal;
+}
+.result p3 {
+  background: #bd000066;
+  font-family: Goldman;
+  font-weight: normal;
+  padding: 10px 0;
+  width: 90px;
+  border-radius: 4px;
+}
+
+/* Add these styles to your CSS */
+.versus-container {/* justify-content: space-around; */background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 0px 0px 30px 0;width: 70vw;min-width: 280px;/* align-items: center; */}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.user-container, .opponent-container {
+  /* width: 70vw; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-container h2 {text-transform: capitalize;/* font-size: 36px; */background-color: rgb(0 0 0 / 0%);/* color: #ffffff; *//* padding: 11px 0px 0px; */border-style: none;border-radius: 5px;border-width: 2px;/* width: 250px; */align-items: center;}
+  
+.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;/* margin: 0px 0 11px 0; */}
+
+.versus-container .container {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.versus-container span {
+text-transform: capitalize;
+}
+
+.opponent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.god-result {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 5px 0;
+}
+.god {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.264);
+  font-family: Goldman;
+  font-weight: normal;
+  padding: 10px 0px;
+  width: 120px;
+  font-size: 15px;
+}
+.result {
+  background: inherit;
+  display: flex;
+  flex-direction: row;
+  /* width: 47%; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  /* padding: 10px 0; */
+}
+
+.versus-container .image-container {display: flex;flex-wrap: wrap;margin: 20px 0 0 0;justify-content: center;}
+
+/* Style the buttons inside .versus-container */
+
+.close-button {
+  background-color: #00000000;
+  padding: 15px 86px;
+  border: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  cursor: pointer;
+  margin: 5px 0 20px 0;
+  font-size: 17px;
+  border-color: #00000073;
+  color: #000000bd;
+}
+
+.versus-container button:hover {
+background-color: #ffffff3e;
+}
+
+/* Add hover effect to card images */
+.card-image:hover {
+transform: scale(1.1);
+}
+
+/* Style the opponent GUDecks link */
+.versus-container a {color: #ffffff;text-decoration: none;padding: 0;border-radius: 4px;background-color: rgba(0, 0, 0, 0.264);font-family: Goldman;font-weight: normal;padding: 10px 0px 12px;width: 219px;font-size: 18px;}
+
+.versus-container a:hover {
+text-decoration: underline;
+color: #fff56d;
+}
+
+.details-visible .versus-container {
+display: none;
+}
+
+.details-visible .versus-container.details-visible {
+display: flex;
+}
+.card-image {
+  padding: 3px;
+  width: 12vw;
+  height: auto;
+  transition: all 0.1s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.card-image:hover {
+transform: scale(1.1);
+}
+
+
+body p {
+  font-family: "Open Sans", sans-serif;
+letter-spacing: 1px;
+font-weight: bold;
+color: rgb(255, 255, 255);
+margin: 0;
+font-size: 18px;
+}
+
+.error-message {
+color: rgba(255, 0, 0, 0.764);
+text-align: center;
+font-size: 18px;
+background-color: rgba(0, 0, 0, 0.286);
+padding: 20px;
+border-radius: 10px;
+margin: 0 auto;
+width: 250px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 700px) {
+
+
+  /* Loading animation for user cards */
+.loading-user-cards {
+  text-align: center;
+  font-size: 20px;
+  padding: 25px 0 10px;
+  font-family: 'GOLDMAN';
+  font-weight: normal;
+}
+
+/* Loading animation for opponent cards */
+.loading-opponent-cards {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px 0 10px;
+  font-family: 'GOLDMAN';
+  font-weight: normal;
+}
+
+  @keyframes scaleAnimation {
+    0% {
+      transform: scale(1.4);
+    }
+    40% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1.4);
+    }
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(32, 35, 49, 0.917);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center; /* Center the image */
+  z-index: 80;
+  display: none;
+}
+
+.loading-desktopcontainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* height: 98%; */
+  margin: 20vh 0 0 0;
+}
+
+.loading-bar-container {
+  margin: 3vw 0 0 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.5vw;
+}
+
+.loading-bar-container2 {
+  margin: 3vw 0 0 0;
+  display: none;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.5vw;
+}
+
+.loading-svg {
+  margin: 0 auto;
+  width: 20vw;
+  animation: scaleAnimation 1s infinite ease-in-out;
+}
+
+
+body {
+  margin: 0;
+  font-family: Open Sans, sans-serif;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.661);
+  color: rgb(255, 255, 255);
+  background-image: url(bg.png);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#background-video {
+display: none;
+overflow: hidden;
+}
+#output {
+  display: flex;
+  flex-direction:
+  column;
+  margin: -1px 0 60px 0px;
+  align-items: center;
+  /* top: 50%; */
+  /* position: relative; */
+  /* bottom: 50%; */
+}
+
+#output h2 {margin: 0;display: flex;flex-direction: row;justify-content: center;}
+
+.line {
+width: 80%;
+margin: 20px 0;
+display: flex;
+height: 2px;
+background-color: #ffffff;
+}
+
+.profile {
+background-color: rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+padding: 25px;
+}
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 0px 30px 0px 30px; */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.topbar2 {display: flex;flex-wrap: wrap;justify-content: center;/* margin-top: 20px; */}
+
+/* Add new styles for the topbar2-text class */
+.topbar2-text {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.9px;
+  line-height: 28px;
+  text-align: center;
+  max-width: 540px;
+  background-color: rgba(0, 0, 0, 0.286);
+  padding: 20px 31px;
+  border-radius: 10px;
+  margin: 20px 0 5px 0;
+}
+
+.topbar h1 {
+font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.logo-and-text p {
+  margin: 7px 0 7px;
+  font-size: 16px;
+  font-family: 'Goldman';
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+.logo-and-text {
+  background-color: #0000009e;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* position: fixed; */
+  width: 100%;
+}
+
+.logo {
+  display: none;
+  width: auto;
+  height: 20px;
+  margin: 8px 4px 8px -9px;
+}
+
+
+
+.dmlogo {
+  width: 450px;
+  margin: 63px 0 20px;
+}
+
+#container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#matches { 
+  border: 1px solid #ddd; 
+  padding: 10px; 
+  margin-top: 20px; 
+}
+
+.form-control {
+  padding: 20px 0;
+  border: none;
+  border-radius: 5px;
+  width: 600px;
+  /* margin-bottom: 5px; */
+  text-align: center;
+  font-size: 18px;
+}
+
+.flatpickr-mobile {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 50vw;
+  min-width: 50vw;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.topbar-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  margin: 0 ;
+  
+}
+
+.button-fields {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+#textbox {
+  padding: 20px 0;
+  margin-bottom: 15px;
+  border-width: 0px;
+  border-radius: 5px;
+  width: 600px;
+  text-align: center;
+  font-size: 18px;
+  }
+  #wait {
+    background-color: #000000b1;
+    color: white;
+    padding: 15px 61.5px;
+    border: none;
+    border-radius: 5px;
+    pointer-events: none;
+    margin: 20px 0 10px 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    cursor: not-allowed;
+  }
+
+#submit {
+  display: none;
+  background-color: #000000b1;
+  color: white;
+  padding: 15px 81px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0 10px 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+}
+#reset {
+  font-weight: 400;
+  background-color: #00000000;
+  border-color: #ffffff94;
+  color: rgb(255 255 255 / 89%);
+  padding: 13px 83px;
+  border-style: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  margin: 5px 0 0 0;
+  font-size: 18px;
+}
+
+#submit:hover {
+background-color: #00000070;
+}
+
+#reset:hover {
+background-color: #ffffff3e;
+}
+
+.action-button:hover {
+  opacity: calc(0.8);
+}
+
+.action-button {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  padding: 20px 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 450px;
+  margin: 10px auto 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 20px;
+  font-family: Open Sans, sans-serif;
+  font-weight: 600;
+}
+
+.action-button p {
+  width: 80%;
+  font-family: Open Sans, sans-serif;
+  letter-spacing: 0px;
+  font-size: 100%;
+}
+
+.horizontal-line {
+  width: 90%;
+  height: 2px;
+  background-color: #ffffffd4;
+  margin: 20px 0 35px 0;
+}
+
+.user-container, .opponent-container {
+  /* width: 70vw; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 8px 0 0 0; */
+}
+
+
+.player-container h2 {
+  text-transform: capitalize;
+  font-size: 22px;
+  background-color: rgb(0 0 0 / 0%);
+  color: #ffffff;
+  padding: 11px 0px;
+  border-style: none;
+  border-radius: 5px;
+  border-width: 2px;
+  width: 409px;
+  align-items: center;
+  /* margin: 20px 0; */
+}
+
+.playercard {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 22px;
+  background-color: rgb(0 0 0 / 0.286);
+  border-color: #00000063;
+  border-style: none;
+  border-radius: 5px;
+  border-width: 2px;
+  margin: 40px 0 30px;
+  padding: 30px 0;
+  width: 450px;
+}
+
+.playercard h2 {/* font-family: Unchained; */padding: 0 10px;}
+
+.playercard p {/* margin: 10px 0 0px 0; */padding: 10px 0 0 0;font-size: 18px;}
+
+/* Add these styles to your CSS */
+.versus-container {justify-content: space-around;background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;padding: 25px;margin: 30px 0px;width: 650px;align-items: center;}
+
+.player-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+text-align: center;
+}
+
+.versus-buttons {display: flex;flex-direction: row;align-items: center;justify-content: center;border-radius: 10px;/* margin: 0 0 10px 0; */}
+
+.versus-container .container {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.versus-container span {
+text-transform: capitalize;
+}
+
+.opponent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.god-result {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: -3px 0 8px 0;
+}
+.god {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.264);
+  font-family: Goldman;
+  font-weight: normal;
+  width: 200px;
+  padding: 10px 0;
+}
+.result {
+  background: inherit;
+  display: flex;
+  flex-direction: row;
+  /* width: 47%; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  /* padding: 10px 0; */
+}
+
+.result p1 {
+  background: #0195057a;
+  padding: 10px 0;
+  font-family: Goldman;
+  font-weight: normal;
+  width: 200px;
+  border-radius: 4px;
+}
+.result p2 {
+font-size: 18px;
+align-items: center;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+font-family: Open Sans, sans-serif;
+font-weight: normal;
+}
+.result p3 {
+  background: #bd000066;
+  font-family: Goldman;
+  font-weight: normal;
+  padding: 10px 0;
+  width: 200px;
+  border-radius: 4px;
+}
+
+.versus-container .image-container {display: flex;flex-wrap: wrap;margin: 20px 0;justify-content: center;}
+
+/* Style the buttons inside .versus-container */
+
+.close-button {
+  background-color: #00000000;
+  padding: 15px 181px;
+  border: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  cursor: pointer;
+  margin: 5px 0 10px 0;
+  font-size: 17px;
+  border-color: #00000073;
+  color: #000000bd;
+}
+
+.versus-container button:hover {
+background-color: #ffffff3e;
+}
+
+/* Add hover effect to card images */
+.card-image:hover {
+transform: scale(1.1);
+}
+
+/* Style the opponent GUDecks link */
+.versus-container a {color: #ffffff;text-decoration: none;padding: 0;/* font-size: 32px; */border-radius: 4px;background-color: #00000063;font-family: Goldman;font-weight: normal;width: 410px;padding: 10px 0 12px;}
+
+.versus-container a:hover {
+text-decoration: underline;
+color: #fff56d;
+}
+
+.details-visible .versus-container {
+display: none;
+}
+
+.details-visible .versus-container.details-visible {
+display: flex;
+}
+.card-image {
+  padding: 2px 5px;
+  margin: 0;
+  width: 85px;
+  height: auto;
+  transition: all 0.1s ease-in-out;
+}
+.card-image:hover {
+transform: scale(1.1);
+}
+
+
+body p {
+font-family: Open Sans, sans-serif;
+letter-spacing: 1px;
+font-weight: bold;
+color: rgb(255, 255, 255);
+margin: 0;
+font-size: 18px;
+}
+
+.error-message {
+color: rgba(255, 0, 0, 0.764);
+text-align: center;
+font-size: 18px;
+background-color: rgba(0, 0, 0, 0.286);
+padding: 20px;
+border-radius: 10px;
+margin: 0 auto;
+width: 300px;
+}
+}
